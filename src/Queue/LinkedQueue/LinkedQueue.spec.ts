@@ -1,12 +1,10 @@
 import {describe, expect, it} from "vitest"
 import LinkedQueue from "./LinkedQueue";
-import LinkedNode from "./LinkedNode";
+import LinkedNode from "../LinkedNode";
 
-interface NodeType extends LinkedNode<NodeType>{
-  data: number
-}
+
 describe("LinkedQueue", () => {
-  const queue = new LinkedQueue<NodeType>();
+  const queue = new LinkedQueue();
   queue.push({data: 1});
   queue.push({data: 2});
   queue.push({data: 3});
@@ -15,7 +13,7 @@ describe("LinkedQueue", () => {
   queue.push({data: 6});
   it("push", () => {
     expect(queue.firstNode?.data).toBe(1);
-    const node1 = queue.firstNode?.next;
+    const node1 = queue.firstNode?.nextNode;
     expect(node1?.data).toBe(2);
   })
   it("pop",()=>{

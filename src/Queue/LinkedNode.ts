@@ -1,4 +1,5 @@
-export default interface LinkedNode<T extends LinkedNode<T>>{
-  next?: T
-  prev?: T
+export default interface LinkedNode<T>{
+  nextNode?: LinkedNode<T> 
+  prevNode?: LinkedNode<T>,
+  data: T,
 }

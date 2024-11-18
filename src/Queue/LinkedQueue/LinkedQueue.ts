@@ -1,35 +1,35 @@
 import IQueue from "../IQueue";
-import LinkedNode from "./LinkedNode";
+import LinkedNode from "../LinkedNode";
 
-export default class LinkedQueue<T extends LinkedNode<T>> implements IQueue<T> {
-  firstNode?: T;
-  lastNode?: T;
+export default class LinkedQueue<T> implements IQueue<T> {
+  firstNode?: LinkedNode<T>;
+  lastNode?: LinkedNode<T>;
   
-  push(node: T) {
+  push(node: LinkedNode<T>) {
     if(!this.lastNode){
       this.lastNode = node;
       this.firstNode = node;
     }
-    this.lastNode.next = node;
-    node.prev = this.lastNode;
+    this.lastNode.nextNode = node;
+    node.prevNode = this.lastNode;
     this.lastNode = node;
   }
-  pop(): T| undefined {
+  pop(): LinkedNode<T>| undefined {
     if(this.lastNode){
       const lastNode = this.lastNode
-      this.lastNode = this.lastNode.prev;
+      this.lastNode = this.lastNode.prevNode;
       if(this.lastNode){
-        this.lastNode.next = undefined;
+        this.lastNode.nextNode = undefined;
       }
       return lastNode;
     }
   }
-  shift(): T|undefined {
+  shift(): LinkedNode<T>|undefined {
     if(this.firstNode){
       const firstNode = this.firstNode
-      this.firstNode = this.firstNode.next;
+      this.firstNode = this.firstNode.nextNode;
       if(this.firstNode){
-        this.firstNode.prev = undefined;
+        this.firstNode.prevNode = undefined;
       }
       return firstNode;
     }
@@ -40,41 +40,41 @@ export default class LinkedQueue<T extends LinkedNode<T>> implements IQueue<T> {
   sort(compareFn?: ((a: T, b: T) => number) | undefined) {
     
   }
-  find(fn: (node: T) => boolean) {
+  find(fn: (node: LinkedNode<T>) => boolean) {
     let node = this.firstNode;
     while(node){
       if(fn(node)){
         return node;
       }
-      node = node.next;
+      node = node.nextNode;
     }
   }
-  filter(fn: (node: T) => boolean) {
+  filter(fn: (node: LinkedNode<T>) => boolean) {
     let node = this.firstNode;
     while(node){
       if(!fn(node)){
         if(this.lastNode){
-          this.lastNode.prev = node.prev;
+          this.lastNode.prevNode = node.prevNode;
         }
         if(this.firstNode){
-          this.firstNode.next = node.next;
+          this.firstNode.nextNode = node.nextNode;
         }
       }
-      node = node.next;
+      node = node.nextNode;
     }
   }
-  getPrevNeighbor(node: T): T| undefined {
-    return node.prev;
+  getPrevNeighbor(node: LinkedNode<T>){
+    return node.prevNode;
   }
-  getNextNeighbor(node: T): T|undefined {
-    return node.next;
+  getNextNeighbor(node: LinkedNode<T>){
+    return node.nextNode;
   }
   get nodes(){
-    const nodes:T[] = [];
+    const nodes:LinkedNode<T>[] = [];
     let node = this.firstNode;
     while(node){
       nodes.push(node);
-      node = node.next
+      node = node.nextNode
     }
     return nodes;
   }
