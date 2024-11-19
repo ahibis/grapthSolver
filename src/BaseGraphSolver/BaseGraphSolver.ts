@@ -1,21 +1,21 @@
-import { ArrayQueue, IQueue, LinkedNode, LinkedQueue } from "../Queue";
-import GraphPlugin from "./plugins/GraphPlugin";
+import { ArrayQueue, IQueue, LinkedQueue } from "../Queue";
+import GraphPlugin from "../plugins/GraphPlugin";
 import Node from "./Node";
 enum QueueType {
   arrayQueue,
   linkedQueue,
 }
-class BaseGraphSolver<T, TCtx> {
+class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
   private queueTypeToQueue = {
     [QueueType.arrayQueue]: () => new ArrayQueue<T>(),
     [QueueType.linkedQueue]: () => new LinkedQueue<T>(),
   };
   nodeQueue: IQueue<T>;
   private getChildrenByNode: (node: T) => T[];
-  private plugins: GraphPlugin<T, TCtx>[] = [];
-  results: Node<T, TCtx>[] = [];
+  private plugins: GraphPlugin<T, TCtx, TNodeCtx>[] = [];
+  results: Node<T, TCtx, TNodeCtx>[] = [];
   private getResultFnByPlugins<T1>(
-    getFnByPlugin: (plugin: GraphPlugin<T, TCtx>) => T1,
+    getFnByPlugin: (plugin: GraphPlugin<T, TCtx, TNodeCtx>) => T1,
     mergeFn: (fn: T1, prevFn: T1) => T1,
     defaultFn: T1
   ) {
@@ -33,7 +33,7 @@ class BaseGraphSolver<T, TCtx> {
     }
     return func ? func : defaultFn;
   }
-  private createNode(data: T): Node<T, TCtx> {
+  private createNode(data: T): Node<T, TCtx, TNodeCtx> {
     return {
       data,
     };
@@ -49,7 +49,7 @@ class BaseGraphSolver<T, TCtx> {
     return this.getResultFnByPlugins(
       (plugin) => plugin.onNodeValidate?.bind(plugin),
       (fn, prevFn) => (node, parent) =>
-        fn!(node, parent) && prevFn!(node, parent),
+      prevFn!(node, parent) && fn!(node, parent),
       undefined
     );
   }
@@ -78,14 +78,14 @@ class BaseGraphSolver<T, TCtx> {
     const validateFn = this.getNodeValidateFn();
     const transformFn = this.getTransformNodeFn();
     if (validateFn) {
-      return (node: Node<T, TCtx>, prevNode: Node<T, TCtx>) => {
+      return (node: Node<T, TCtx, TNodeCtx>, prevNode: Node<T, TCtx, TNodeCtx>) => {
         const node1 = transformFn!(node, prevNode);
         if (validateFn(node1, prevNode)) {
           this.nodeQueue.push(node1);
         }
       };
     }
-    return (node: Node<T, TCtx>, prevNode: Node<T, TCtx>) => {
+    return (node: Node<T, TCtx, TNodeCtx>, prevNode: Node<T, TCtx, TNodeCtx>) => {
       const node1 = transformFn!(node, prevNode);
       this.nodeQueue.push(node1);
     };
@@ -93,15 +93,15 @@ class BaseGraphSolver<T, TCtx> {
   private getResultObserverFn() {
     const checkIsResultFn = this.getCheckIsResultFn();
     if (checkIsResultFn) {
-      return (node: Node<T, TCtx>) => {
+      return (node: Node<T, TCtx, TNodeCtx>) => {
         if (checkIsResultFn(node)) {
           this.results.push(node);
         }
       };
     }
-    return (node: Node<T, TCtx>) => {};
+    return (node: Node<T, TCtx, TNodeCtx>) => {};
   }
-  registerPlugin(plugin: GraphPlugin<T, TCtx>) {
+  registerPlugin(plugin: GraphPlugin<T, TCtx, TNodeCtx>) {
     this.plugins.push(plugin);
   }
   constructor(
@@ -111,7 +111,10 @@ class BaseGraphSolver<T, TCtx> {
     this.getChildrenByNode = getChildrenByNode;
     this.nodeQueue = this.queueTypeToQueue[queueType]();
   }
-  calculateByNode(data: T) {
+  getResultsData(){
+    return this.results.map((node) => node.data);
+  }
+  calculateByNode(data: T){
     this.plugins.sort(
       (plugin1, plugin2) => (plugin1.priority || 0) - (plugin2.priority || 0)
     );
@@ -124,10 +127,10 @@ class BaseGraphSolver<T, TCtx> {
     const checkStopCalculate = this.getCheckStopCalculateFn()!;
 
     this.results = [];
-    let node: Node<T, TCtx> | undefined = configureFirstNode(createNode(data));
-    resultObserver(node);
-    if (checkStopCalculate(node, this)) {
-      return [node];
+    let node: Node<T, TCtx, TNodeCtx> | undefined = configureFirstNode(createNode(data));
+    resultObserver(node!);
+    if (checkStopCalculate(node!, this)) {
+      return [node!];
     }
     while (node) {
       const children = getChildrenByNode(node.data);
@@ -139,7 +142,7 @@ class BaseGraphSolver<T, TCtx> {
         }
         addNode(child, node);
       }
-      node = this.nodeQueue.pop() as Node<T, TCtx> | undefined;
+      node = this.nodeQueue.pop() as Node<T, TCtx, TNodeCtx> | undefined;
     }
     return this.results;
   }
