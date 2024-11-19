@@ -28,7 +28,7 @@ describe("PluginTests", () => {
   });
   it("limitResultPlugin", () => {
     const solver = createSolver();
-    const limitResultsPlugin = new LimitResultsPlugin<number>();
+    const limitResultsPlugin = new LimitResultsPlugin<number>(solver);
     solver.registerPlugin(limitResultsPlugin);
     solver.calculateByNode(2);
     expect(solver.getResultsData()).toEqual([2]);
@@ -41,7 +41,7 @@ describe("PluginTests", () => {
   });
   it("AddConstrainPlugin",()=>{
     const solver = createSolver();
-    const constrainPlugin = new AddConstrainPlugin<number>((node)=>{
+    const constrainPlugin = new AddConstrainPlugin<number>(solver,(node)=>{
       return node.data < 7
     })
     
@@ -49,7 +49,7 @@ describe("PluginTests", () => {
     solver.calculateByNode(0);
     expect(solver.getResultsData()).toEqual([0,2,4,6]);
 
-    const constrainPlugin1 = new AddConstrainPlugin<number>((node)=>{
+    const constrainPlugin1 = new AddConstrainPlugin<number>(solver,(node)=>{
       return node.data < 5
     })
     solver.registerPlugin(constrainPlugin1);

@@ -70,7 +70,7 @@ class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
   private getCheckStopCalculateFn() {
     return this.getResultFnByPlugins(
       (plugin) => plugin.onCheckStopCalculate?.bind(plugin),
-      (fn, prevFn) => (node, graph) => fn!(node, graph) || prevFn!(node, graph),
+      (fn, prevFn) => (node) => fn!(node) || prevFn!(node),
       (node) => false
     );
   }
@@ -129,7 +129,7 @@ class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
     this.results = [];
     let node: Path<T, TCtx, TNodeCtx> | undefined = configureFirstNode(createPath(data));
     resultObserver(node!);
-    if (checkStopCalculate(node!, this)) {
+    if (checkStopCalculate(node!)) {
       return [node!];
     }
     while (node) {
@@ -137,7 +137,7 @@ class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
       for (let i = 0; i < children.length; i += 1) {
         const child = transformNode(createPath(children[i]), node);
         resultObserver(child);
-        if (checkStopCalculate(child, this)) {
+        if (checkStopCalculate(child)) {
           break;
         }
         addNode(child, node);
