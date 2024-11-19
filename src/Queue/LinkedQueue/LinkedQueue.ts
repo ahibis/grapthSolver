@@ -1,7 +1,10 @@
-import IQueue from "../IQueue";
+import ILinkedQueue from "../ILinkedQueue";
 import LinkedNode from "../LinkedNode";
 
-export default class LinkedQueue<T> implements IQueue<T> {
+export default class LinkedQueue<T> implements ILinkedQueue<T> {
+  sort(compareFn?: ((a: LinkedNode<T>, b: LinkedNode<T>) => number) | undefined): void {
+    
+  }
   firstNode?: LinkedNode<T>;
   lastNode?: LinkedNode<T>;
   
@@ -36,9 +39,6 @@ export default class LinkedQueue<T> implements IQueue<T> {
   }
   get isEmpty(): boolean {
     return this.firstNode === undefined;
-  }
-  sort(compareFn?: ((a: T, b: T) => number) | undefined) {
-    
   }
   find(fn: (node: LinkedNode<T>) => boolean) {
     let node = this.firstNode;

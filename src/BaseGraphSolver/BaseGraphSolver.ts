@@ -1,16 +1,17 @@
-import { ArrayQueue, IQueue, LinkedQueue } from "../Queue";
+import { ArrayQueue, LinkedNode, LinkedQueue } from "../Queue";
+import ILinkedQueue from "../Queue/ILinkedQueue";
 import GraphPlugin from "../plugins/GraphPlugin";
 import Path from "./Path";
 enum QueueType {
   arrayQueue,
   linkedQueue,
 }
-class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
+class BaseGraphSolver<T, TCtx = unknown, TNodeCtx = unknown> {
   private queueTypeToQueue = {
-    [QueueType.arrayQueue]: () => new ArrayQueue<T>(),
+    [QueueType.arrayQueue]: () => new ArrayQueue<LinkedNode<T>>(),
     [QueueType.linkedQueue]: () => new LinkedQueue<T>(),
   };
-  nodeQueue: IQueue<T>;
+  orderOfPathPass: ILinkedQueue<T, Path<T, TCtx, TNodeCtx>>;
   private getChildrenByNode: (node: T) => T[];
   private plugins: GraphPlugin<T, TCtx, TNodeCtx>[] = [];
   results: Path<T, TCtx, TNodeCtx>[] = [];
@@ -49,7 +50,7 @@ class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
     return this.getResultFnByPlugins(
       (plugin) => plugin.onPathValidate?.bind(plugin),
       (fn, prevFn) => (node, parent) =>
-      prevFn!(node, parent) && fn!(node, parent),
+        prevFn!(node, parent) && fn!(node, parent),
       undefined
     );
   }
@@ -78,16 +79,22 @@ class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
     const validateFn = this.getValidatePathFn();
     const transformFn = this.getTransformPathFn();
     if (validateFn) {
-      return (node: Path<T, TCtx, TNodeCtx>, prevNode: Path<T, TCtx, TNodeCtx>) => {
+      return (
+        node: Path<T, TCtx, TNodeCtx>,
+        prevNode: Path<T, TCtx, TNodeCtx>
+      ) => {
         const node1 = transformFn!(node, prevNode);
         if (validateFn(node1, prevNode)) {
-          this.nodeQueue.push(node1);
+          this.orderOfPathPass.push(node1);
         }
       };
     }
-    return (node: Path<T, TCtx, TNodeCtx>, prevNode: Path<T, TCtx, TNodeCtx>) => {
+    return (
+      node: Path<T, TCtx, TNodeCtx>,
+      prevNode: Path<T, TCtx, TNodeCtx>
+    ) => {
       const node1 = transformFn!(node, prevNode);
-      this.nodeQueue.push(node1);
+      this.orderOfPathPass.push(node1);
     };
   }
   private getResultObserverFn() {
@@ -109,12 +116,12 @@ class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
     queueType: QueueType = QueueType.arrayQueue
   ) {
     this.getChildrenByNode = getChildrenByNode;
-    this.nodeQueue = this.queueTypeToQueue[queueType]();
+    this.orderOfPathPass = this.queueTypeToQueue[queueType]();
   }
-  getResultsData(){
+  getResultsData() {
     return this.results.map((node) => node.data);
   }
-  calculateByNode(data: T){
+  calculateByNode(data: T) {
     this.plugins.sort(
       (plugin1, plugin2) => (plugin1.priority || 0) - (plugin2.priority || 0)
     );
@@ -127,7 +134,9 @@ class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
     const checkStopCalculate = this.getCheckStopCalculateFn()!;
 
     this.results = [];
-    let node: Path<T, TCtx, TNodeCtx> | undefined = configureFirstNode(createPath(data));
+    let node: Path<T, TCtx, TNodeCtx> | undefined = configureFirstNode(
+      createPath(data)
+    );
     resultObserver(node!);
     if (checkStopCalculate(node!)) {
       return [node!];
@@ -142,7 +151,7 @@ class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
         }
         addNode(child, node);
       }
-      node = this.nodeQueue.pop() as Path<T, TCtx, TNodeCtx> | undefined;
+      node = this.orderOfPathPass.pop();
     }
     return this.results;
   }

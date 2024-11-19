@@ -60,13 +60,19 @@ console.log(test4(100000000));
 console.timeEnd("test4");
 console.log(process.memoryUsage());
 
-// interface Node1<T> {
-//   data: T;
+interface Node1<T> {
+  data: T;
+}
+
+class Node2<T, T1=Node1<T>> {}
+class Node3<T> {
+  constructor() {
+
+    const node = new Node2<T>()
+  }
+}
+
+// class Test<T, T1 extends Node1<T> = Node1<T>> {
+//   constructor(private data: T1) {}
 // }
-// class Node2<T extends Node1<T>> {}
-// class Node3<T> {
-//   constructor() {
-    
-//     const node = new Node2<T extends Node1<T>>()
-//   }
-// }
+// new Test<number>({ data: 1 });

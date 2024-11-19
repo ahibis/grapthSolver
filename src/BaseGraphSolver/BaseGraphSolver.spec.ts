@@ -1,13 +1,16 @@
 import { describe, expect, it } from "vitest";
 import { BaseGraphSolver, QueueType } from "./BaseGraphSolver";
-describe("BaseGraphSolver", () => {
+
+it("GraphSolverIsWorked", () => {
   const solver = new BaseGraphSolver((node: number) =>
     node < 10 ? [node + 1] : []
   );
-  const getDataResult = <T>(nodes: { data: T }[]) =>
-    nodes.map(({ data }) => data);
-
-  it("baseTest", () => {
-    expect(solver.calculateByNode(1)).toEqual([]);
-  });
+  expect(solver.calculateByNode(1)).toEqual([]);
 });
+
+// it("LinkedArray", () => {
+//   const solver = new BaseGraphSolver((node: number) =>
+//     node < 10 ? [node + 1] : [], QueueType.linkedQueue
+//   );
+//   expect(solver.calculateByNode(1)).toEqual([]);
+// });
