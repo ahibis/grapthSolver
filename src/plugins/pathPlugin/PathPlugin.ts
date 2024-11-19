@@ -1,8 +1,7 @@
-import { BaseGraphSolver } from "../../BaseGraphSolver/BaseGraphSolver";
-import Path from "../../BaseGraphSolver/Path";
+import {  Path } from "../../BaseGraphSolver";
 import GraphPlugin from "../GraphPlugin";
 
-export default class addConstrainPlugin<T, TCtx = unknown, TNodeCtx = unknown>
+export default class PathPlugin<T, TCtx = unknown, TNodeCtx = unknown>
   implements GraphPlugin<T, TCtx, TNodeCtx>
 {
   priority = -10000;

@@ -1,10 +1,10 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { BaseGraphSolver, QueueType } from "../BaseGraphSolver/BaseGraphSolver";
 import {
-  GetResultPlugin,
+  ResultPlugin,
   LimitResultsPlugin,
-  AddConstrainPlugin,
-  AddPathPlugin,
+  PathValidatePlugin,
+  PathPlugin,
   ValidateNodePlugin
 } from "./";
 
@@ -13,7 +13,7 @@ describe("PluginTests", () => {
     const solver = new BaseGraphSolver((node: number) =>
       node < 10 ? [node + 1] : []
     );
-    const resultPlugin = new GetResultPlugin<number>(
+    const resultPlugin = new ResultPlugin<number>(
       ({ data }) => data % 2 == 0
     );
     solver.registerPlugin(resultPlugin);
@@ -35,13 +35,13 @@ describe("PluginTests", () => {
   });
   it("addPathPlugin", () => {
     const solver = createSolver();
-    const addPathPlugin = new AddPathPlugin<number>();
+    const addPathPlugin = new PathPlugin<number>();
     solver.registerPlugin(addPathPlugin);
     expect(solver.calculateByNode(1).every(({parent})=>parent)).toBe(true);
   });
   it("AddConstrainPlugin",()=>{
     const solver = createSolver();
-    const constrainPlugin = new AddConstrainPlugin<number>(solver,(node)=>{
+    const constrainPlugin = new PathValidatePlugin<number>(solver,(node)=>{
       return node.data < 7
     })
     
@@ -49,7 +49,7 @@ describe("PluginTests", () => {
     solver.calculateByNode(0);
     expect(solver.getResultsData()).toEqual([0,2,4,6]);
 
-    const constrainPlugin1 = new AddConstrainPlugin<number>(solver,(node)=>{
+    const constrainPlugin1 = new PathValidatePlugin<number>(solver,(node)=>{
       return node.data < 5
     })
     solver.registerPlugin(constrainPlugin1);
