@@ -1,6 +1,6 @@
 import { ArrayQueue, IQueue, LinkedQueue } from "../Queue";
 import GraphPlugin from "../plugins/GraphPlugin";
-import Node from "./Node";
+import Path from "./Path";
 enum QueueType {
   arrayQueue,
   linkedQueue,
@@ -13,7 +13,7 @@ class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
   nodeQueue: IQueue<T>;
   private getChildrenByNode: (node: T) => T[];
   private plugins: GraphPlugin<T, TCtx, TNodeCtx>[] = [];
-  results: Node<T, TCtx, TNodeCtx>[] = [];
+  results: Path<T, TCtx, TNodeCtx>[] = [];
   private getResultFnByPlugins<T1>(
     getFnByPlugin: (plugin: GraphPlugin<T, TCtx, TNodeCtx>) => T1,
     mergeFn: (fn: T1, prevFn: T1) => T1,
@@ -33,29 +33,29 @@ class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
     }
     return func ? func : defaultFn;
   }
-  private createNode(data: T): Node<T, TCtx, TNodeCtx> {
+  private createPath(data: T): Path<T, TCtx, TNodeCtx> {
     return {
       data,
     };
   }
-  private getTransformNodeFn() {
+  private getTransformPathFn() {
     return this.getResultFnByPlugins(
-      (plugin) => plugin.onNodeTransform?.bind(plugin),
+      (plugin) => plugin.onPathTransform?.bind(plugin),
       (fn, prevFn) => (node, parent) => fn!(prevFn!(node, parent), parent),
       (node, parent) => node
     );
   }
-  private getNodeValidateFn() {
+  private getValidatePathFn() {
     return this.getResultFnByPlugins(
-      (plugin) => plugin.onNodeValidate?.bind(plugin),
+      (plugin) => plugin.onPathValidate?.bind(plugin),
       (fn, prevFn) => (node, parent) =>
       prevFn!(node, parent) && fn!(node, parent),
       undefined
     );
   }
-  private getSettingFirstNodeFn() {
+  private getSettingFirstPathFn() {
     return this.getResultFnByPlugins(
-      (plugin) => plugin.onFirstNode?.bind(plugin),
+      (plugin) => plugin.onFirstPath?.bind(plugin),
       (fn, prevFn) => (node) => fn!(prevFn!(node)),
       (node) => node
     );
@@ -75,17 +75,17 @@ class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
     );
   }
   private getAddNodeFn() {
-    const validateFn = this.getNodeValidateFn();
-    const transformFn = this.getTransformNodeFn();
+    const validateFn = this.getValidatePathFn();
+    const transformFn = this.getTransformPathFn();
     if (validateFn) {
-      return (node: Node<T, TCtx, TNodeCtx>, prevNode: Node<T, TCtx, TNodeCtx>) => {
+      return (node: Path<T, TCtx, TNodeCtx>, prevNode: Path<T, TCtx, TNodeCtx>) => {
         const node1 = transformFn!(node, prevNode);
         if (validateFn(node1, prevNode)) {
           this.nodeQueue.push(node1);
         }
       };
     }
-    return (node: Node<T, TCtx, TNodeCtx>, prevNode: Node<T, TCtx, TNodeCtx>) => {
+    return (node: Path<T, TCtx, TNodeCtx>, prevNode: Path<T, TCtx, TNodeCtx>) => {
       const node1 = transformFn!(node, prevNode);
       this.nodeQueue.push(node1);
     };
@@ -93,13 +93,13 @@ class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
   private getResultObserverFn() {
     const checkIsResultFn = this.getCheckIsResultFn();
     if (checkIsResultFn) {
-      return (node: Node<T, TCtx, TNodeCtx>) => {
+      return (node: Path<T, TCtx, TNodeCtx>) => {
         if (checkIsResultFn(node)) {
           this.results.push(node);
         }
       };
     }
-    return (node: Node<T, TCtx, TNodeCtx>) => {};
+    return (node: Path<T, TCtx, TNodeCtx>) => {};
   }
   registerPlugin(plugin: GraphPlugin<T, TCtx, TNodeCtx>) {
     this.plugins.push(plugin);
@@ -118,16 +118,16 @@ class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
     this.plugins.sort(
       (plugin1, plugin2) => (plugin1.priority || 0) - (plugin2.priority || 0)
     );
-    const createNode = this.createNode;
+    const createPath = this.createPath;
     const getChildrenByNode = this.getChildrenByNode;
-    const configureFirstNode = this.getSettingFirstNodeFn()!;
-    const transformNode = this.getTransformNodeFn()!;
+    const configureFirstNode = this.getSettingFirstPathFn()!;
+    const transformNode = this.getTransformPathFn()!;
     const addNode = this.getAddNodeFn();
     const resultObserver = this.getResultObserverFn();
     const checkStopCalculate = this.getCheckStopCalculateFn()!;
 
     this.results = [];
-    let node: Node<T, TCtx, TNodeCtx> | undefined = configureFirstNode(createNode(data));
+    let node: Path<T, TCtx, TNodeCtx> | undefined = configureFirstNode(createPath(data));
     resultObserver(node!);
     if (checkStopCalculate(node!, this)) {
       return [node!];
@@ -135,14 +135,14 @@ class BaseGraphSolver<T, TCtx=unknown, TNodeCtx=unknown> {
     while (node) {
       const children = getChildrenByNode(node.data);
       for (let i = 0; i < children.length; i += 1) {
-        const child = transformNode(createNode(children[i]), node);
+        const child = transformNode(createPath(children[i]), node);
         resultObserver(child);
         if (checkStopCalculate(child, this)) {
           break;
         }
         addNode(child, node);
       }
-      node = this.nodeQueue.pop() as Node<T, TCtx, TNodeCtx> | undefined;
+      node = this.nodeQueue.pop() as Path<T, TCtx, TNodeCtx> | undefined;
     }
     return this.results;
   }

@@ -1,5 +1,5 @@
 import { BaseGraphSolver } from "../../BaseGraphSolver";
-import Node from "../../BaseGraphSolver/Node";
+import Path from "../../BaseGraphSolver/Path";
 import GraphPlugin from "../GraphPlugin";
 
 export default class LimitOfCountResults<T, TCtx = unknown, TNodeCtx = unknown>
@@ -7,7 +7,7 @@ export default class LimitOfCountResults<T, TCtx = unknown, TNodeCtx = unknown>
 {
   constructor(private limitOfCount: number = 1) {}
   onCheckStopCalculate(
-    node: Node<T, TCtx, TNodeCtx>,
+    node: Path<T, TCtx, TNodeCtx>,
     graph: BaseGraphSolver<T, TCtx, TNodeCtx>
   ): boolean {
     return graph.results.length >= this.limitOfCount;
