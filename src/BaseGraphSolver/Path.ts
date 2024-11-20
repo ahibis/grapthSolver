@@ -1,13 +1,13 @@
 import { LinkedNode } from "../Queue";
 
-interface Path<T, TPath, TNodeCtx> extends LinkedNode<T>{
+interface Path<T, TPath = undefined, TNodeData=unknown> extends LinkedNode<T>{
   data:T,
-  parent?:Path<T, TPath, TNodeCtx>,
+  parent?:this,
   depth?:number,
   visitsCount?:number,
   pathData?:TPath,
-  prevNode?:Path<T, TPath, TNodeCtx>,
-  nextNode?:Path<T, TPath, TNodeCtx>,
-  nodeData?:TNodeCtx
+  prevNode?:this,
+  nextNode?:this,
+  nodeData?:TNodeData
 }
 export default Path;

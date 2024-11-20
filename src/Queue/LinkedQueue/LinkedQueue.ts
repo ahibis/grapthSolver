@@ -1,14 +1,14 @@
 import ILinkedQueue from "../ILinkedQueue";
 import LinkedNode from "../LinkedNode";
 
-export default class LinkedQueue<T> implements ILinkedQueue<T> {
-  sort(compareFn?: ((a: LinkedNode<T>, b: LinkedNode<T>) => number) | undefined): void {
+export default class LinkedQueue<T, T1 extends LinkedNode<T> = LinkedNode<T>> implements ILinkedQueue<T, T1> {
+  sort(compareFn?: ((a: T1, b: T1) => number) | undefined): void {
     
   }
-  firstNode?: LinkedNode<T>;
-  lastNode?: LinkedNode<T>;
+  firstNode: T1|undefined;
+  lastNode: T1|undefined;
   
-  push(node: LinkedNode<T>) {
+  push(node: T1) {
     if(!this.lastNode){
       this.lastNode = node;
       this.firstNode = node;
@@ -17,7 +17,7 @@ export default class LinkedQueue<T> implements ILinkedQueue<T> {
     node.prevNode = this.lastNode;
     this.lastNode = node;
   }
-  pop(): LinkedNode<T>| undefined {
+  pop(): T1| undefined {
     if(this.lastNode){
       const lastNode = this.lastNode
       this.lastNode = this.lastNode.prevNode;
@@ -27,7 +27,7 @@ export default class LinkedQueue<T> implements ILinkedQueue<T> {
       return lastNode;
     }
   }
-  shift(): LinkedNode<T>|undefined {
+  shift(): T1|undefined {
     if(this.firstNode){
       const firstNode = this.firstNode
       this.firstNode = this.firstNode.nextNode;
@@ -40,16 +40,16 @@ export default class LinkedQueue<T> implements ILinkedQueue<T> {
   get isEmpty(): boolean {
     return this.firstNode === undefined;
   }
-  find(fn: (node: LinkedNode<T>) => boolean) {
+  find(fn: (node: T1) => boolean) {
     let node = this.firstNode;
     while(node){
       if(fn(node)){
         return node;
       }
-      node = node.nextNode;
+      node = node.nextNode as T1;
     }
   }
-  filter(fn: (node: LinkedNode<T>) => boolean) {
+  filter(fn: (node: T1) => boolean) {
     let node = this.firstNode;
     while(node){
       if(!fn(node)){
@@ -63,14 +63,14 @@ export default class LinkedQueue<T> implements ILinkedQueue<T> {
       node = node.nextNode;
     }
   }
-  getPrevNeighbor(node: LinkedNode<T>){
+  getPrevNeighbor(node: T1){
     return node.prevNode;
   }
-  getNextNeighbor(node: LinkedNode<T>){
+  getNextNeighbor(node: T1){
     return node.nextNode;
   }
   get nodes(){
-    const nodes:LinkedNode<T>[] = [];
+    const nodes:T1[] = [];
     let node = this.firstNode;
     while(node){
       nodes.push(node);

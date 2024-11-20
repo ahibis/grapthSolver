@@ -1,12 +1,12 @@
 import { BaseGraphSolver } from "../BaseGraphSolver/BaseGraphSolver";
 import Path from "../BaseGraphSolver/Path";
-interface GraphPlugin<T, TCtx, TNodeCtx> {
+interface GraphPlugin<T, TCtx, TNodeCtx, TPath extends Path<T, TCtx, TNodeCtx>=Path<T, TCtx, TNodeCtx>> {
   priority?: number;
-  onFirstPath?(path: Path<T, TCtx,TNodeCtx>): Path<T, TCtx,TNodeCtx>;
-  onPathTransform?(path: Path<T, TCtx,TNodeCtx>, parent: Path<T, TCtx,TNodeCtx>): Path<T, TCtx, TNodeCtx>;
-  onPathValidate?(path: Path<T, TCtx, TNodeCtx>, parent: Path<T, TCtx, TNodeCtx>): boolean;
-  onCheckIsResult?(path: Path<T, TCtx, TNodeCtx>): boolean;
-  onCheckStopCalculate?(path: Path<T, TCtx, TNodeCtx>): boolean;
-  onGetResults?:<TResult = Path<T, TCtx, TNodeCtx>>(results: Path<T, TCtx, TNodeCtx>)=> TResult;
+  onFirstPath?(path: TPath): TPath;
+  onPathTransform?(path: TPath, parent: TPath): TPath;
+  onPathValidate?(path: TPath, parent: TPath): boolean;
+  onCheckIsResult?(path: TPath): boolean;
+  onCheckStopCalculate?(path: TPath): boolean;
+  onGetResults?:<TResult = TPath>(results: TPath)=> TResult;
 }
 export default GraphPlugin
