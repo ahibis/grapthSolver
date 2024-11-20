@@ -9,11 +9,11 @@ export default class PathDataPlugin<T, TPathData = unknown, TNodeData = unknown>
     private initDataPath: (node: Path<T, TPathData, TNodeData>) => TPathData,
     private getPathDataForNewNode: (
       path: Path<T, TPathData, TNodeData>,
-      parent: Path<T, TPathData, TNodeData> & {pathData:TPathData}
+      parent: Path<T, TPathData, TNodeData> & { pathData: TPathData }
     ) => TPathData
   ) {}
   onFirstPath(
-    path: Path<T, TPathData, TNodeData> 
+    path: Path<T, TPathData, TNodeData>
   ): Path<T, TPathData, TNodeData> {
     path.pathData = this.initDataPath(path);
     return path;
@@ -22,7 +22,10 @@ export default class PathDataPlugin<T, TPathData = unknown, TNodeData = unknown>
     path: Path<T, TPathData, TNodeData>,
     parent: Path<T, TPathData, TNodeData>
   ): Path<T, TPathData, TNodeData> {
-    path.pathData = this.getPathDataForNewNode(path, parent as Path<T, TPathData, TNodeData> & {pathData:TPathData});
+    path.pathData = this.getPathDataForNewNode(
+      path,
+      parent as Path<T, TPathData, TNodeData> & { pathData: TPathData }
+    );
     return path;
   }
 }

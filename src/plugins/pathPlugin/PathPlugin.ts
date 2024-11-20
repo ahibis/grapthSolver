@@ -1,4 +1,4 @@
-import {  Path } from "../../BaseGraphSolver";
+import { Path } from "../../BaseGraphSolver";
 import GraphPlugin from "../GraphPlugin";
 
 export default class PathPlugin<T, TCtx = unknown, TNodeCtx = unknown>

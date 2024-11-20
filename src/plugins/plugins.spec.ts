@@ -67,13 +67,13 @@ it("validateNodePlugin", () => {
 it("PathDataPlugin", () => {
   const solver = createSolver();
   const pathDataPlugin = new PathDataPlugin<number, number>(
-    ({data}) => data,
+    ({ data }) => data,
     ({ data }, { pathData }) => {
       return data + pathData;
     }
   );
   solver.registerPlugin(pathDataPlugin);
   solver.calculateByNode(0);
-  expect(solver.getResultsData()).toEqual([0,2,4,6,8,10])
-  expect(solver.getResultsPathData()).toEqual([0,3,10,21,36,55]);
+  expect(solver.getResultsData()).toEqual([0, 2, 4, 6, 8, 10]);
+  expect(solver.getResultsPathData()).toEqual([0, 3, 10, 21, 36, 55]);
 });

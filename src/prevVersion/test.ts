@@ -76,13 +76,14 @@
 // // }
 // // new Test<number>({ data: 1 });
 
-// function isNull(value: any): value is null {
+// function isNull(value: any): value is null  {
 //   return value === null;
 // }
 // let data: number | null = 1;
 // if (!isNull(data)) {
 //   const a = data;
 // }
+
 // type some = { x: number };
 // function check<T>(data: T) {
 //   type T1 = T extends some ? T & some : T;
