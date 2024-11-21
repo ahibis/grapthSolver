@@ -1,4 +1,4 @@
-import { LinkedNode } from "../Queue";
+import { LinkedNode } from "../queue";
 
 interface Path<T, TPath = undefined, TNodeData = unknown>
   extends LinkedNode<T> {

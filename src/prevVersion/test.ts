@@ -105,27 +105,32 @@
 // }
 // new Int3<number>();
 interface Int<T> {
-  data: T;
-  test?: T;
-  next?: this;
+  data: T
+  test?: T
+  next?: this
 }
 interface Int1<T> extends Int<T> {
-  test: T;
+  test: T
 }
-type Int2<T> = { test: T } & Int<T> ;
+type Int2<T> = { test: T } & Int<T>
 
 class Int3<T, T1 extends Int<T> = Int<T>> {
-  private b?: T1;
+  private b?: T1
 
   constructor(private a: T1) {
-    a.next = a;
-    this.b = a.next;
+    a.next = a
+    this.b = a.next
   }
 
   f(): T1 | undefined {
-    return this.b;
+    return this.b
   }
 }
-type T1<T> = Int<T> | { test: number };
-let a: T1<number> = ({ data: 42, test: 1, next: { data: 31 } });
-new Int3<number,Int2<number>>({ data: 42,test:3,next: { data: 31,test:3 }}); // Работает
+type T1<T> = Int<T> | { test: number }
+let a: T1<number> = { data: 42, test: 1, next: { data: 31 } }
+new Int3<number, Int2<number>>({
+  data: 42,
+  test: 3,
+  next: { data: 31, test: 3 },
+}) // Работает
+var a1 = 3
