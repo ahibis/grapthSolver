@@ -1,9 +1,9 @@
-import { describe, expect, it } from 'vitest'
-import { BaseGraphSolver, QueueType } from './BaseGraphSolver'
+import { expect, it } from 'vitest'
+import { BaseGraphSolver } from './BaseGraphSolver'
 
 it('GraphSolverIsWorked', () => {
   const solver = new BaseGraphSolver((node: number) =>
-    node < 10 ? [node + 1] : [],
+    node < 10 ? [node + 1] : []
   )
   expect(solver.calculateByNode(1)).toEqual([])
 })
