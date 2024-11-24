@@ -11,9 +11,6 @@ export default tseslint.config(
       '@typescript-eslint': tseslint.plugin,
       prettier: prettierPlugin,
     },
-    // parserOptions: {
-    //   project: ['tsconfig.json', 'tsconfig.node.json'],
-    // },
   },
   {
     ignores: ['build', 'node_modules', 'coverage', 'eslint.config.js'],
