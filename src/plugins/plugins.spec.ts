@@ -13,7 +13,7 @@ const createSolver = () => {
   const solver = new BaseGraphSolver((node: number) =>
     node < 10 ? [node + 1] : []
   )
-  const resultPlugin = new ResultPlugin<number>(({ data }) => data % 2 == 0)
+  const resultPlugin = new ResultPlugin<number>(({ data }) => data % 2 === 0)
   solver.registerPlugin(resultPlugin)
   return solver
 }
@@ -58,7 +58,7 @@ it('AddConstrainPlugin', () => {
 it('validateNodePlugin', () => {
   const solver = createSolver()
   const validateNodePlugin = new ValidateNodePlugin<number>((node) => {
-    return node.data % 4 == 0
+    return node.data % 4 === 0
   })
   solver.registerPlugin(validateNodePlugin)
   solver.calculateByNode(0)

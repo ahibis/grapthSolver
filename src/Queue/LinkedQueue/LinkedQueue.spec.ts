@@ -25,18 +25,18 @@ describe('LinkedQueue', () => {
     expect(node?.data).toBe(1)
   })
   it('find', () => {
-    const node = queue.find((node) => node.data == 3)
+    const node = queue.find((node) => node.data === 3)
     expect(node?.data).toBe(3)
-    const node1 = queue.find((node) => node.data == 1)
+    const node1 = queue.find((node) => node.data === 1)
     expect(node1).toBe(undefined)
   })
   it('prevNeighbor', () => {
-    const node = queue.find((node) => node.data == 3)
+    const node = queue.find((node) => node.data === 3)
     const node1 = queue.getPrevNeighbor(node!)
     expect(node1?.data).toBe(2)
   })
   it('nextNeighbor', () => {
-    const node = queue.find((node) => node.data == 3)
+    const node = queue.find((node) => node.data === 3)
     const node1 = queue.getNextNeighbor(node!)
     expect(node1?.data).toBe(4)
   })
@@ -45,7 +45,7 @@ describe('LinkedQueue', () => {
     expect(nodes.map((node) => node.data)).toEqual([2, 3, 4])
   })
   it('filter', () => {
-    queue.filter((node) => node.data != 3)
+    queue.filter((node) => node.data !== 3)
     const nodes = queue.nodes
     expect(nodes.map((node) => node.data)).toEqual([2, 4])
   })

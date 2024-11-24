@@ -39,7 +39,9 @@ class BaseGraphSolver<
     for (let pluginIndex = 0; pluginIndex < plugins.length; pluginIndex += 1) {
       const plugin = plugins[pluginIndex]
       const fnFromPlugin = getFnByPlugin(plugin)
-      if (!fnFromPlugin) continue
+      if (!fnFromPlugin) {
+        continue
+      }
       if (!func) {
         func = fnFromPlugin
         continue
@@ -166,4 +168,5 @@ class BaseGraphSolver<
     return this.results
   }
 }
+
 export { BaseGraphSolver, QueueType }

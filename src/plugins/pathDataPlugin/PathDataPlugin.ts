@@ -1,10 +1,10 @@
-import { Path } from "../../BaseGraphSolver";
-import GraphPlugin from "../GraphPlugin";
+import { Path } from '../../BaseGraphSolver'
+import GraphPlugin from '../GraphPlugin'
 
 export default class PathDataPlugin<T, TPathData = unknown, TNodeData = unknown>
   implements GraphPlugin<T, TPathData, TNodeData>
 {
-  priority = -10000;
+  priority = -10000
   constructor(
     private initDataPath: (node: Path<T, TPathData, TNodeData>) => TPathData,
     private getPathDataForNewNode: (
@@ -15,8 +15,8 @@ export default class PathDataPlugin<T, TPathData = unknown, TNodeData = unknown>
   onFirstPath(
     path: Path<T, TPathData, TNodeData>
   ): Path<T, TPathData, TNodeData> {
-    path.pathData = this.initDataPath(path);
-    return path;
+    path.pathData = this.initDataPath(path)
+    return path
   }
   onPathTransform(
     path: Path<T, TPathData, TNodeData>,
@@ -25,7 +25,7 @@ export default class PathDataPlugin<T, TPathData = unknown, TNodeData = unknown>
     path.pathData = this.getPathDataForNewNode(
       path,
       parent as Path<T, TPathData, TNodeData> & { pathData: TPathData }
-    );
-    return path;
+    )
+    return path
   }
 }

@@ -19,8 +19,9 @@
   },
   "scripts": {
     "test": "vitest",
-    "prettier": "prettier",
-    "lint": "eslint"
+    "prettier": "prettier --write ./src",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "overrides": {
     "eslint": "^9.15.0"

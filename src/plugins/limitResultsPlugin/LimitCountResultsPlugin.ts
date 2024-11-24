@@ -6,7 +6,7 @@ export default class LimitOfCountResults<T, TCtx = unknown, TNodeCtx = unknown>
 {
   constructor(
     private graph: BaseGraphSolver<T, TCtx, TNodeCtx>,
-    private limitOfCount: number = 1
+    private limitOfCount = 1
   ) {}
   onCheckStopCalculate(): boolean {
     return this.graph.results.length >= this.limitOfCount

@@ -1,6 +1,6 @@
-import { BaseGraphSolver } from "../../BaseGraphSolver/BaseGraphSolver";
-import Path from "../../BaseGraphSolver/Path";
-import GraphPlugin from "../GraphPlugin";
+import { BaseGraphSolver } from '../../BaseGraphSolver/BaseGraphSolver'
+import Path from '../../BaseGraphSolver/Path'
+import GraphPlugin from '../GraphPlugin'
 
 export default class PathValidatePlugin<T, TCtx = unknown, TNodeCtx = unknown>
   implements GraphPlugin<T, TCtx, TNodeCtx>
@@ -13,6 +13,6 @@ export default class PathValidatePlugin<T, TCtx = unknown, TNodeCtx = unknown>
     ) => boolean
   ) {}
   onCheckStopCalculate(node: Path<T, TCtx, TNodeCtx>): boolean {
-    return !this.checkPathIsValid(node, this.graph);
+    return !this.checkPathIsValid(node, this.graph)
   }
 }

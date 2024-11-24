@@ -1,5 +1,5 @@
-import Path from "../../BaseGraphSolver/Path";
-import GraphPlugin from "../GraphPlugin";
+import Path from '../../BaseGraphSolver/Path'
+import GraphPlugin from '../GraphPlugin'
 
 export default class ResultPlugin<T, TCtx = unknown, TNodeCtx = unknown>
   implements GraphPlugin<T, TCtx, TNodeCtx>
@@ -8,6 +8,6 @@ export default class ResultPlugin<T, TCtx = unknown, TNodeCtx = unknown>
     private checkNodeIsResult: (node: Path<T, TCtx, TNodeCtx>) => boolean
   ) {}
   onCheckIsResult(node: Path<T, TCtx, TNodeCtx>): boolean {
-    return this.checkNodeIsResult(node);
+    return this.checkNodeIsResult(node)
   }
 }

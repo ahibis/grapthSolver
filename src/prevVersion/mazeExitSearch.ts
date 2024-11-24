@@ -12,14 +12,18 @@ const path = dfs([[0, 0]], {
     ]
   },
   isFinished([y, x]: [number, number]) {
-    return y == 0 && x == 6
+    return y === 0 && x === 6
   },
   getHash([y, x]: [number, number]) {
     return `${y}_${x}`
   },
   checkChildren([y, x]: [number, number]) {
-    if (y < 0 || y > 4 || x < 0 || x > 6) return false
-    if (map[y][x] == '#') return false
+    if (y < 0 || y > 4 || x < 0 || x > 6) {
+      return false
+    }
+    if (map[y][x] === '#') {
+      return false
+    }
     return true
   },
   getScore(data: [number, number], depth: number) {
