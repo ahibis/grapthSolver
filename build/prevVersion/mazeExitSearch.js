@@ -9,7 +9,7 @@ let map = [
     "...###",
 ];
 const path = (0, dfs_1.dfs)([[0, 0]], {
-    getChildrens([y, x]) {
+    getChildren([y, x]) {
         return [[y - 1, x], [y + 1, x], [y, x + 1], [y, x - 1]];
     },
     isFinished([y, x]) {

@@ -1,7 +1,7 @@
 import { dfs, dfsOption } from './dfs'
 console.log(
   dfs([1], {
-    getChildrens(data: number) {
+    getChildren(data: number) {
       return [data * 2, data - 5]
     },
     isFinished(data: number) {

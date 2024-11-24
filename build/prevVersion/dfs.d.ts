@@ -1,6 +1,6 @@
 export interface dfsOption<T, Y> {
     getHash?<T>(data: T): string;
-    getChildrens<T>(data: T, payload?: Y): T[];
+    getChildren<T>(data: T, payload?: Y): T[];
     isFinished<T>(data: T, payload?: Y): boolean;
     checkChildren?(data: T, payload?: Y): boolean;
     getScore?(data: T, depth: number, payload?: Y): number;

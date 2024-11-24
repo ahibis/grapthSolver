@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const dfs_1 = require("./dfs");
 console.log((0, dfs_1.dfs)([1], {
-    getChildrens(data) {
+    getChildren(data) {
         return [data * 2, data - 5];
     },
     isFinished(data) {

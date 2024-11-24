@@ -1,7 +1,7 @@
 {
-  "name": "graphSolver",
+  "name": "graph_solver",
   "version": "0.0.1",
-  "description": "library for decloration solving graph",
+  "description": "library for declaration solving graph",
   "main": "src/index.ts",
   "author": "Ahibis<pokseteve31@gmail.com>",
   "license": "MIT",

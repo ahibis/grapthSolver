@@ -1,6 +1,6 @@
 export interface dfsOption<T, Y> {
   getHash?<T>(data: T): string
-  getChildrens<T>(data: T, payload?: Y): T[]
+  getChildren<T>(data: T, payload?: Y): T[]
   isFinished<T>(data: T, payload?: Y): boolean
   checkChildren?(data: T, payload?: Y): boolean
   getScore?(data: T, depth: number, payload?: Y): number
@@ -14,7 +14,7 @@ interface withParent<T> {
 export function dfs<T, Y>(data: T[], options: dfsOption<T, Y>, payload?: Y) {
   const {
     getHash,
-    getChildrens,
+    getChildren,
     isFinished,
     checkChildren,
     getScore,
@@ -45,11 +45,11 @@ export function dfs<T, Y>(data: T[], options: dfsOption<T, Y>, payload?: Y) {
       return result
     }
 
-    let childrens = getChildrens(data, payload)
+    let children = getChildren(data, payload)
     if (getHash) {
       const nodesToDelete: withParent<T>[] = []
 
-      childrens = childrens.filter((child) => {
+      children = children.filter((child) => {
         const hash = getHash(child)
         if (cash.has(hash)) {
           const comapare = compareNode
@@ -69,11 +69,11 @@ export function dfs<T, Y>(data: T[], options: dfsOption<T, Y>, payload?: Y) {
     }
 
     if (checkChildren) {
-      childrens = childrens.filter((child) => checkChildren(child, payload))
+      children = children.filter((child) => checkChildren(child, payload))
     }
 
     queue.push(
-      ...childrens.map((d) => ({
+      ...children.map((d) => ({
         data: d,
         parent: dataWithParent,
         depth: dataWithParent.depth + 1,

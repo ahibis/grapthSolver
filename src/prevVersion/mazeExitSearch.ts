@@ -3,7 +3,7 @@ import { dfs, dfsOption } from './dfs'
 const map = ['.#####.', '.#...#.', '.#.....', '.#...#.', '...###']
 
 const path = dfs([[0, 0]], {
-  getChildrens([y, x]: [number, number]) {
+  getChildren([y, x]: [number, number]) {
     return [
       [y - 1, x],
       [y + 1, x],

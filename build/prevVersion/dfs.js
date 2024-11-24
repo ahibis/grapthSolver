@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dfs = dfs;
 function dfs(data, options, payload) {
-    const { getHash, getChildrens, isFinished, checkChildren, getScore, compareNode } = options;
+    const { getHash, getChildren, isFinished, checkChildren, getScore, compareNode } = options;
     let queue = data.map((d) => ({
         data: d,
         parent: undefined,
@@ -24,10 +24,10 @@ function dfs(data, options, payload) {
             console.log("нашел за", counter);
             return result;
         }
-        let childrens = getChildrens(data, payload);
+        let children = getChildren(data, payload);
         if (getHash) {
             const nodesToDelete = [];
-            childrens = childrens.filter(child => {
+            children = children.filter(child => {
                 const hash = getHash(child);
                 if (cash.has(hash)) {
                     const comapare = compareNode ? compareNode(dataWithParent, cash.get(hash)) : -1;
@@ -44,9 +44,9 @@ function dfs(data, options, payload) {
             queue.filter((e) => nodesToDelete.includes(e));
         }
         if (checkChildren) {
-            childrens = childrens.filter((child) => checkChildren(child, payload));
+            children = children.filter((child) => checkChildren(child, payload));
         }
-        queue.push(...childrens.map((d) => ({
+        queue.push(...children.map((d) => ({
             data: d,
             parent: dataWithParent,
             depth: dataWithParent.depth + 1,
