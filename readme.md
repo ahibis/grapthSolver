@@ -1,36 +1,40 @@
 # GraphSolver
 ## Definitions
-Graph - 
-Node -
-Path -
-Edge - ?
-PathData - 
-NodeData - 
-Init - 
-Update - 
-Destroy - 
-Parent -
-Child - 
-Children -
-Result - 
-Visit - 
-Stop - 
+* Objects:
+    * Graph - 
+    * Node -
+    * Path -
+    * Edge - ?
+    * Data - 
+    * PathData - 
+    * NodeData - 
+    * Parent -
+    * Child - 
+    * Children -
+    * Result - 
+* Actions
+    * Init - 
+    * Update - 
+    * Destroy -   
+    * Reject -  
+    * Check
+    * Stop - 
+    * Visit - 
+    * Enable -
+    * Disable - 
+    
 ## Plugins
-### 
-ParentInitPlugin
-ChildrenInitPlugin
-### Data
-PathDataInitPlugin
-NodeDataInitPlugin
-
-### Data transform
-NodeDataTransformPlugin
-PathTransformPlugin
-### Result Plugin
-ResultPlugin
-### Stop Graph
-StopGraph
-VisitPlugin
+* Data init
+    * ParentInitPlugin
+    * ChildrenInitPlugin
+    * PathDataInitPlugin
+    * NodeDataInitPlugin
+    * DepthInitPlugin
+* Results
+    * ResultPlugin
+* Stop Graph
+    * StopGraph
+    * VisitPlugin
 
 ## Examples
 ### backPack
@@ -39,54 +43,32 @@ Type Item = {i:number, w:number, p:number}
 Type BackPack = {w:number, p:number}
 const widthMax = 20;
 const items:Item = [...]
-new GraphSolver<Item, BackPack>(item=>[items[item.i+1]])
+new GraphSolver(item=>[items[item.i+1]],{
+    data: {w:0, p:0}
+})
     .disablePathPop()
-    .firstPathInit(path=>path.data={w:0,p:0})
     .pathDataInit(({node}, {data})=>(
         {
             w: data.w + node.w
             p: data.p + node.p
         })
-    .pathReject((data:{w})=>w>widthMax)
-    .pathsDynamicReject(
-        (path, PathLast)=>path.data.w > pathLast.data.w,
-        (path, PathLast)=>path.data.p < pathLast.data.p
-    )
-    .makePathAsResultWhen((result,path)=>result.data.p < path.data.p )
-    .calculate(items[0])
-```
-Shorted
-```typescript
-Type Item = {i:number, w:number, p:number}
-Type BackPack = {w:number, p:number}
-const widthMax = 20;
-const items:Item = [...]
-new GraphSolver<Item, BackPack>(item=>[items[item.i+1]])
-    .disablePathPop()
-    .setFirstPathData({w:0,p:0})
-    .pathDataInit(({node}, {data})=>(
-        {
-            w: data.w + node.w
-            p: data.p + node.p
-        })
-    .rejectPathWhen((data:{w})=>w>widthMax)
+    .rejectPath((data:{w})=>w>widthMax)
     .pathsDynamicReject(
         pathDataCompare("w",(w,wP)=>w > wP),
         pathDataCompare("p",(p,pP)=>p< pP)
     )
-    .makePathAsResultWhen(pathDataCompare(({p},{p:pL})=>p < pL) )
+    .checkPathIsResult(({data:{p}},{data:{p:pL}})=>p < pL )
     .calculate(items[0], ({data})=>data)
 ```
 ### FiendShortedSum
 ```typescript
 const result = 343
-new GraphSolver<number>(num=>[num+3, num-2])
-    .setFirstPathData(0)
-    .rejectPathWhen(({data})=>data > 343)
+new GraphSolver(num=>[num+3, num-2], {data:0})
+    .rejectPath(({data})=>data > 343)
     .calculateDepth()
     .makePathOrderByScore(({data, depth})=>-Math.abs(343 - data) - depth * 15)
-    .rejectPathByDoubleVisit()
-    .makePathAsResultWhen(({data})=> data = 343)
+    .rejectPathByNodeVisit(2)
+    .checkPathIsResult(({data})=> data = 343)
     .limitResults(1)
     .calculate(0, ({node})=>node)
 ```
@@ -105,11 +87,43 @@ new GraphSolver<cords>((x,y)=>[
     .enableNodeParent()
     .makePathOrderByScore(({node:[x,y], depth}) => 
     -(Math.abs(0 - y) + Math.abs(6 - x) + depth * 0.5))
-    .rejectPathWhen(({node:[x,y]})=>y < 0 || y > 4 || x < 0 || x > 6)
-    .rejectPathWhen(({node:[x,y]})=>map[y][x] === '#')
-    .makePathAsResultWhen(({node:[x,y]})=>y === 0 && x === 6)
+    .rejectPath(({node:[x,y]})=>y < 0 || y > 4 || x < 0 || x > 6)
+    .rejectPath(({node:[x,y]})=>map[y][x] === '#')
+    .checkPathIsResult(({node:[x,y]})=>y === 0 && x === 6)
     .limitResults(1)
     .calculate([0,0])
+```
+### Short path by Dijkstra
 
+```typescript
+const Graph = {
+    'A': {'B': 4, 'C': 7},
+    'B': {'A': 4, 'D': 2, 'E': 8},
+    'C': {'A': 7, 'D': 2, 'E': 5},
+    'D': {'B': 2, 'C': 2, 'E': 1,'F': 4},
+    'E': {'C': 5, 'D': 1, 'F': 11},
+    'F': {'B': 8, 'D': 4, 'E': 11}
+}
+type Vertex = [string, number]
+new GraphSolver<Vertex, boolean, number>(vertex=> Object.entries(Graph[vertex[0]]),{
+    data: false
+    nodeData: 0
+})
+    .enableNodeParent()
+    .pathDataInit(()=>false)
+    .nodeDataKey((vertex)=>vertex.node[0])
+    .nodeDataInit((vertex,parent)=>{
+        const oldDistance = vertex.nodeData ||Math.Inf
+        const newDistance = parent.nodeData + vertex.node[1]
+        if(oldDistance< newDistance){
+            vertex.data = true
+            return oldDistance
+        }
+        return newDistance
+    })
+    .rejectPath((node)=>node.data == "true")
+    .resultKey(vertex=> vertex.node[0])
+    .checkPathIsResult((vertex, result)=> vertex.nodeData < result.nodeData)
+    .calculate(["A",0])
 ```
 
