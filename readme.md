@@ -2,7 +2,8 @@
 
 ## API
 
-[Show API](docsMd/globals.md)
+[Watch API on site](https://ahibis.github.io/grapthSolver/modules.html)
+[Watch API on github](docs/globals.md)
 
 ## Definitions
 
