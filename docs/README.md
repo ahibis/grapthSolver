@@ -1,8 +1,8 @@
+**graph_solver v0.0.1**
+
+***
+
 # GraphSolver
-
-## API
-
-[Show API](docs/globals.md)
 
 ## Definitions
 

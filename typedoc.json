@@ -1,0 +1,7 @@
+{
+  "entryPoints": ["src/index.ts"], // Ваши входные файлы
+  "out": "docs", // Папка для сохранения документации
+  "plugin": ["typedoc-plugin-markdown"], // Для генерации Markdown
+  "exclude": ["**/*.spec.ts"], // Исключить тесты
+  "includeVersion": true
+}

@@ -1,10 +1,10 @@
-import { BaseGraphSolver, QueueType } from 'BaseGraphSolver'
-import Path from '../BaseGraphSolver/Path'
+import { BaseGraphSolver, QueueType, Path } from '../BaseGraphSolver'
 import { GraphPlugin } from '../plugins'
 
 interface GraphOptions {
   queueType?: QueueType
 }
+
 class GraphSolver<
   TNode,
   TPathData = unknown,
@@ -31,6 +31,12 @@ class GraphSolver<
   disablePathPop() {
     return this
   }
+  /**
+   * Enables parant node for each path.
+   * This function is part of a fluent API and returns the GraphSolver instance
+   * to allow for method chaining.
+   * @example
+   */
   enableNodeParent() {
     return this
   }
