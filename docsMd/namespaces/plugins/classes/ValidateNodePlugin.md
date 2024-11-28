@@ -1,8 +1,8 @@
-[**graph_solver v0.0.1**](../README.md)
+[**graph_solver v0.0.1**](../../../README.md)
 
 ***
 
-[graph_solver](../globals.md) / ValidateNodePlugin
+[graph_solver](../../../globals.md) / [plugins](../README.md) / ValidateNodePlugin
 
 # Class: ValidateNodePlugin\<T, TCtx, TNodeCtx\>
 
@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[plugins/validateNodePlugin/ValidateNodePlugin.ts:8](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/validateNodePlugin/ValidateNodePlugin.ts#L8)
+[plugins/validateNodePlugin/ValidateNodePlugin.ts:8](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/validateNodePlugin/ValidateNodePlugin.ts#L8)
 
 ## Properties
 
@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[plugins/validateNodePlugin/ValidateNodePlugin.ts:7](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/validateNodePlugin/ValidateNodePlugin.ts#L7)
+[plugins/validateNodePlugin/ValidateNodePlugin.ts:7](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/validateNodePlugin/ValidateNodePlugin.ts#L7)
 
 ## Methods
 
@@ -62,11 +62,11 @@
 
 ##### node
 
-[`Path`](../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>
+[`Path`](../../../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>
 
 ##### parent
 
-[`Path`](../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>
+[`Path`](../../../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>
 
 #### Returns
 
@@ -78,4 +78,4 @@
 
 #### Defined in
 
-[plugins/validateNodePlugin/ValidateNodePlugin.ts:14](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/validateNodePlugin/ValidateNodePlugin.ts#L14)
+[plugins/validateNodePlugin/ValidateNodePlugin.ts:14](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/validateNodePlugin/ValidateNodePlugin.ts#L14)

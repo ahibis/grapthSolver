@@ -20,7 +20,7 @@
 
 • **TPath** *extends* [`Path`](../interfaces/Path.md)\<`TNode`, `TPathData`, `TNodeCtx`\> = [`Path`](../interfaces/Path.md)\<`TNode`, `TPathData`, `TNodeCtx`\>
 
-• **TGraphPlugin** *extends* [`GraphPlugin`](../interfaces/GraphPlugin.md)\<`TNode`, `TPathData`, `TNodeCtx`, `TPath`\> = [`GraphPlugin`](../interfaces/GraphPlugin.md)\<`TNode`, `TPathData`, `TNodeCtx`, `TPath`\>
+• **TGraphPlugin** *extends* [`GraphPlugin`](../namespaces/plugins/interfaces/GraphPlugin.md)\<`TNode`, `TPathData`, `TNodeCtx`, `TPath`\> = [`GraphPlugin`](../namespaces/plugins/interfaces/GraphPlugin.md)\<`TNode`, `TPathData`, `TNodeCtx`, `TPath`\>
 
 ## Constructors
 
@@ -58,7 +58,7 @@ and can be used to customize the behavior of the Path class.
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:33](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L33)
+[GraphSolver/GraphSolver.ts:33](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L33)
 
 ## Properties
 
@@ -72,7 +72,7 @@ and can be used to customize the behavior of the Path class.
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:27](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L27)
+[BaseGraphSolver/BaseGraphSolver.ts:27](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/BaseGraphSolver.ts#L27)
 
 ***
 
@@ -86,7 +86,7 @@ and can be used to customize the behavior of the Path class.
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:30](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L30)
+[BaseGraphSolver/BaseGraphSolver.ts:30](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/BaseGraphSolver.ts#L30)
 
 ## Methods
 
@@ -128,7 +128,7 @@ graphSolver.calculate(firstNode, (result) => console.log(result))
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:250](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L250)
+[GraphSolver/GraphSolver.ts:250](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L250)
 
 ***
 
@@ -152,7 +152,7 @@ graphSolver.calculate(firstNode, (result) => console.log(result))
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:138](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L138)
+[BaseGraphSolver/BaseGraphSolver.ts:138](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/BaseGraphSolver.ts#L138)
 
 ***
 
@@ -169,7 +169,7 @@ All Path will have .depth property which increases by 1 as you move through the 
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:79](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L79)
+[GraphSolver/GraphSolver.ts:79](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L79)
 
 ***
 
@@ -201,7 +201,7 @@ const graphSolver = new GraphSolver()
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:213](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L213)
+[GraphSolver/GraphSolver.ts:213](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L213)
 
 ***
 
@@ -215,7 +215,7 @@ const graphSolver = new GraphSolver()
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:40](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L40)
+[GraphSolver/GraphSolver.ts:40](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L40)
 
 ***
 
@@ -232,7 +232,7 @@ All Path will have .children property with the children paths
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:72](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L72)
+[GraphSolver/GraphSolver.ts:72](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L72)
 
 ***
 
@@ -249,7 +249,7 @@ All Path will have .childrenNodes property with the children nodes
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:65](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L65)
+[GraphSolver/GraphSolver.ts:65](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L65)
 
 ***
 
@@ -273,7 +273,7 @@ const graphSolver = new GraphSolver()
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:51](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L51)
+[GraphSolver/GraphSolver.ts:51](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L51)
 
 ***
 
@@ -290,7 +290,7 @@ All Path will have .parent property with the parent path
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:58](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L58)
+[GraphSolver/GraphSolver.ts:58](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L58)
 
 ***
 
@@ -308,7 +308,7 @@ All Path will have .parent property with the parent path
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:132](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L132)
+[BaseGraphSolver/BaseGraphSolver.ts:132](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/BaseGraphSolver.ts#L132)
 
 ***
 
@@ -326,7 +326,7 @@ All Path will have .parent property with the parent path
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:135](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L135)
+[BaseGraphSolver/BaseGraphSolver.ts:135](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/BaseGraphSolver.ts#L135)
 
 ***
 
@@ -358,7 +358,7 @@ const graphSolver = new GraphSolver()
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:237](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L237)
+[GraphSolver/GraphSolver.ts:237](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L237)
 
 ***
 
@@ -392,7 +392,7 @@ const graphSolver = new GraphSolver()
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:93](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L93)
+[GraphSolver/GraphSolver.ts:93](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L93)
 
 ***
 
@@ -424,7 +424,7 @@ const graphSolver = new GraphSolver()
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:107](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L107)
+[GraphSolver/GraphSolver.ts:107](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L107)
 
 ***
 
@@ -463,7 +463,7 @@ const graphSolver = new GraphSolver()
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:155](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L155)
+[GraphSolver/GraphSolver.ts:155](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L155)
 
 ***
 
@@ -496,7 +496,7 @@ const graphSolver = new GraphSolver()
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:137](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L137)
+[GraphSolver/GraphSolver.ts:137](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L137)
 
 ***
 
@@ -534,7 +534,7 @@ const graphSolver = new GraphSolver()
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:125](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L125)
+[GraphSolver/GraphSolver.ts:125](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L125)
 
 ***
 
@@ -574,7 +574,7 @@ const graphSolver = new GraphSolver()
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:189](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L189)
+[GraphSolver/GraphSolver.ts:189](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L189)
 
 ***
 
@@ -598,7 +598,7 @@ const graphSolver = new GraphSolver()
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:122](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L122)
+[BaseGraphSolver/BaseGraphSolver.ts:122](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/BaseGraphSolver.ts#L122)
 
 ***
 
@@ -633,7 +633,7 @@ const graphSolver = new GraphSolver()
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:170](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L170)
+[GraphSolver/GraphSolver.ts:170](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L170)
 
 ***
 
@@ -665,7 +665,7 @@ const graphSolver = new GraphSolver()
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:226](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L226)
+[GraphSolver/GraphSolver.ts:226](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L226)
 
 ***
 
@@ -697,4 +697,4 @@ const graphSolver = new GraphSolver()
 
 #### Defined in
 
-[GraphSolver/GraphSolver.ts:202](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/GraphSolver/GraphSolver.ts#L202)
+[GraphSolver/GraphSolver.ts:202](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/GraphSolver/GraphSolver.ts#L202)

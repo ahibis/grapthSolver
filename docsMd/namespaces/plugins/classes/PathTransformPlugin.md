@@ -1,8 +1,8 @@
-[**graph_solver v0.0.1**](../README.md)
+[**graph_solver v0.0.1**](../../../README.md)
 
 ***
 
-[graph_solver](../globals.md) / PathTransformPlugin
+[graph_solver](../../../globals.md) / [plugins](../README.md) / PathTransformPlugin
 
 # Class: PathTransformPlugin\<TData, TPathData, TNodeData, TPath\>
 
@@ -14,7 +14,7 @@
 
 • **TNodeData** = `unknown`
 
-• **TPath** *extends* [`Path`](../interfaces/Path.md)\<`TData`, `TPathData`, `TNodeData`\> = [`Path`](../interfaces/Path.md)\<`TData`, `TPathData`, `TNodeData`\>
+• **TPath** *extends* [`Path`](../../../interfaces/Path.md)\<`TData`, `TPathData`, `TNodeData`\> = [`Path`](../../../interfaces/Path.md)\<`TData`, `TPathData`, `TNodeData`\>
 
 ## Implements
 
@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[plugins/pathTransformPlugin/PathTransformPlugin.ts:15](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/pathTransformPlugin/PathTransformPlugin.ts#L15)
+[plugins/pathTransformPlugin/PathTransformPlugin.ts:15](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/pathTransformPlugin/PathTransformPlugin.ts#L15)
 
 ## Methods
 
@@ -66,4 +66,4 @@
 
 #### Defined in
 
-[plugins/pathTransformPlugin/PathTransformPlugin.ts:17](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/pathTransformPlugin/PathTransformPlugin.ts#L17)
+[plugins/pathTransformPlugin/PathTransformPlugin.ts:17](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/pathTransformPlugin/PathTransformPlugin.ts#L17)

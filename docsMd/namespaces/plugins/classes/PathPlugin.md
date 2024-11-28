@@ -1,8 +1,8 @@
-[**graph_solver v0.0.1**](../README.md)
+[**graph_solver v0.0.1**](../../../README.md)
 
 ***
 
-[graph_solver](../globals.md) / PathPlugin
+[graph_solver](../../../globals.md) / [plugins](../README.md) / PathPlugin
 
 # Class: PathPlugin\<T, TCtx, TNodeCtx\>
 
@@ -40,27 +40,27 @@
 
 #### Defined in
 
-[plugins/pathPlugin/PathPlugin.ts:7](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/pathPlugin/PathPlugin.ts#L7)
+[plugins/pathPlugin/PathPlugin.ts:7](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/pathPlugin/PathPlugin.ts#L7)
 
 ## Methods
 
 ### onPathTransform()
 
-> **onPathTransform**(`node`, `parent`): [`Path`](../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>
+> **onPathTransform**(`node`, `parent`): [`Path`](../../../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>
 
 #### Parameters
 
 ##### node
 
-[`Path`](../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>
+[`Path`](../../../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>
 
 ##### parent
 
-[`Path`](../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>
+[`Path`](../../../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>
 
 #### Returns
 
-[`Path`](../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>
+[`Path`](../../../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>
 
 #### Implementation of
 
@@ -68,4 +68,4 @@
 
 #### Defined in
 
-[plugins/pathPlugin/PathPlugin.ts:8](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/pathPlugin/PathPlugin.ts#L8)
+[plugins/pathPlugin/PathPlugin.ts:8](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/pathPlugin/PathPlugin.ts#L8)

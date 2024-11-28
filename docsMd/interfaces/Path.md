@@ -8,7 +8,7 @@
 
 ## Extends
 
-- [`LinkedNode`](LinkedNode.md)\<`TNode`\>
+- `default`\<`TNode`\>
 
 ## Type Parameters
 
@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:9](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L9)
+[BaseGraphSolver/Path.ts:9](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L9)
 
 ***
 
@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:7](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L7)
+[BaseGraphSolver/Path.ts:7](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L7)
 
 ***
 
@@ -46,11 +46,11 @@
 
 #### Overrides
 
-[`LinkedNode`](LinkedNode.md).[`nextNode`](LinkedNode.md#nextnode)
+`LinkedNode.nextNode`
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:11](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L11)
+[BaseGraphSolver/Path.ts:11](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L11)
 
 ***
 
@@ -60,11 +60,11 @@
 
 #### Overrides
 
-[`LinkedNode`](LinkedNode.md).[`node`](LinkedNode.md#node)
+`LinkedNode.node`
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:5](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L5)
+[BaseGraphSolver/Path.ts:5](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L5)
 
 ***
 
@@ -74,7 +74,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:12](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L12)
+[BaseGraphSolver/Path.ts:12](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L12)
 
 ***
 
@@ -84,7 +84,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:6](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L6)
+[BaseGraphSolver/Path.ts:6](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L6)
 
 ***
 
@@ -94,11 +94,11 @@
 
 #### Overrides
 
-[`LinkedNode`](LinkedNode.md).[`prevNode`](LinkedNode.md#prevnode)
+`LinkedNode.prevNode`
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:10](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L10)
+[BaseGraphSolver/Path.ts:10](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L10)
 
 ***
 
@@ -108,4 +108,4 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:8](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L8)
+[BaseGraphSolver/Path.ts:8](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L8)

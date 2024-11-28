@@ -1,8 +1,8 @@
-[**graph_solver v0.0.1**](../README.md)
+[**graph_solver v0.0.1**](../../../README.md)
 
 ***
 
-[graph_solver](../globals.md) / NodeDataPlugin
+[graph_solver](../../../globals.md) / [plugins](../README.md) / NodeDataPlugin
 
 # Class: NodeDataPlugin\<TData, TPathData, TNodeData, TPath\>
 
@@ -14,7 +14,7 @@
 
 • **TNodeData** = `unknown`
 
-• **TPath** *extends* [`Path`](../interfaces/Path.md)\<`TData`, `TPathData`, `TNodeData`\> = [`Path`](../interfaces/Path.md)\<`TData`, `TPathData`, `TNodeData`\>
+• **TPath** *extends* [`Path`](../../../interfaces/Path.md)\<`TData`, `TPathData`, `TNodeData`\> = [`Path`](../../../interfaces/Path.md)\<`TData`, `TPathData`, `TNodeData`\>
 
 ## Implements
 
@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[plugins/nodeDataPlugin/NodeDataPlugin.ts:18](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/nodeDataPlugin/NodeDataPlugin.ts#L18)
+[plugins/nodeDataPlugin/NodeDataPlugin.ts:18](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/nodeDataPlugin/NodeDataPlugin.ts#L18)
 
 ## Properties
 
@@ -52,7 +52,7 @@
 
 #### Defined in
 
-[plugins/nodeDataPlugin/NodeDataPlugin.ts:17](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/nodeDataPlugin/NodeDataPlugin.ts#L17)
+[plugins/nodeDataPlugin/NodeDataPlugin.ts:17](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/nodeDataPlugin/NodeDataPlugin.ts#L17)
 
 ***
 
@@ -66,7 +66,7 @@
 
 #### Defined in
 
-[plugins/nodeDataPlugin/NodeDataPlugin.ts:16](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/nodeDataPlugin/NodeDataPlugin.ts#L16)
+[plugins/nodeDataPlugin/NodeDataPlugin.ts:16](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/nodeDataPlugin/NodeDataPlugin.ts#L16)
 
 ## Methods
 
@@ -90,7 +90,7 @@
 
 #### Defined in
 
-[plugins/nodeDataPlugin/NodeDataPlugin.ts:23](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/nodeDataPlugin/NodeDataPlugin.ts#L23)
+[plugins/nodeDataPlugin/NodeDataPlugin.ts:23](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/nodeDataPlugin/NodeDataPlugin.ts#L23)
 
 ***
 
@@ -114,4 +114,4 @@
 
 #### Defined in
 
-[plugins/nodeDataPlugin/NodeDataPlugin.ts:29](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/nodeDataPlugin/NodeDataPlugin.ts#L29)
+[plugins/nodeDataPlugin/NodeDataPlugin.ts:29](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/nodeDataPlugin/NodeDataPlugin.ts#L29)

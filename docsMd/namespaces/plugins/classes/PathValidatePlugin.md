@@ -1,8 +1,8 @@
-[**graph_solver v0.0.1**](../README.md)
+[**graph_solver v0.0.1**](../../../README.md)
 
 ***
 
-[graph_solver](../globals.md) / PathValidatePlugin
+[graph_solver](../../../globals.md) / [plugins](../README.md) / PathValidatePlugin
 
 # Class: PathValidatePlugin\<T, TCtx, TNodeCtx\>
 
@@ -28,7 +28,7 @@
 
 ##### graph
 
-[`BaseGraphSolver`](BaseGraphSolver.md)\<`T`, `TCtx`, `TNodeCtx`, [`Path`](../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>, [`GraphPlugin`](../interfaces/GraphPlugin.md)\<`T`, `TCtx`, `TNodeCtx`, [`Path`](../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>\>\>
+[`BaseGraphSolver`](../../../classes/BaseGraphSolver.md)\<`T`, `TCtx`, `TNodeCtx`, [`Path`](../../../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>, [`GraphPlugin`](../interfaces/GraphPlugin.md)\<`T`, `TCtx`, `TNodeCtx`, [`Path`](../../../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>\>\>
 
 ##### checkPathIsValid
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[plugins/pathValidatePlugin/PathValidatePlugin.ts:8](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/pathValidatePlugin/PathValidatePlugin.ts#L8)
+[plugins/pathValidatePlugin/PathValidatePlugin.ts:8](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/pathValidatePlugin/PathValidatePlugin.ts#L8)
 
 ## Methods
 
@@ -52,7 +52,7 @@
 
 ##### node
 
-[`Path`](../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>
+[`Path`](../../../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>
 
 #### Returns
 
@@ -64,4 +64,4 @@
 
 #### Defined in
 
-[plugins/pathValidatePlugin/PathValidatePlugin.ts:15](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/pathValidatePlugin/PathValidatePlugin.ts#L15)
+[plugins/pathValidatePlugin/PathValidatePlugin.ts:15](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/pathValidatePlugin/PathValidatePlugin.ts#L15)

@@ -1,8 +1,8 @@
-[**graph_solver v0.0.1**](../README.md)
+[**graph_solver v0.0.1**](../../../README.md)
 
 ***
 
-[graph_solver](../globals.md) / LimitResultsPlugin
+[graph_solver](../../../globals.md) / [plugins](../README.md) / LimitResultsPlugin
 
 # Class: LimitResultsPlugin\<T, TCtx, TNodeCtx\>
 
@@ -28,7 +28,7 @@
 
 ##### graph
 
-[`BaseGraphSolver`](BaseGraphSolver.md)\<`T`, `TCtx`, `TNodeCtx`, [`Path`](../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>, [`GraphPlugin`](../interfaces/GraphPlugin.md)\<`T`, `TCtx`, `TNodeCtx`, [`Path`](../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>\>\>
+[`BaseGraphSolver`](../../../classes/BaseGraphSolver.md)\<`T`, `TCtx`, `TNodeCtx`, [`Path`](../../../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>, [`GraphPlugin`](../interfaces/GraphPlugin.md)\<`T`, `TCtx`, `TNodeCtx`, [`Path`](../../../interfaces/Path.md)\<`T`, `TCtx`, `TNodeCtx`\>\>\>
 
 ##### limitOfCount
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[plugins/limitResultsPlugin/LimitCountResultsPlugin.ts:7](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/limitResultsPlugin/LimitCountResultsPlugin.ts#L7)
+[plugins/limitResultsPlugin/LimitCountResultsPlugin.ts:7](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/limitResultsPlugin/LimitCountResultsPlugin.ts#L7)
 
 ## Methods
 
@@ -58,4 +58,4 @@
 
 #### Defined in
 
-[plugins/limitResultsPlugin/LimitCountResultsPlugin.ts:11](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/limitResultsPlugin/LimitCountResultsPlugin.ts#L11)
+[plugins/limitResultsPlugin/LimitCountResultsPlugin.ts:11](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/limitResultsPlugin/LimitCountResultsPlugin.ts#L11)
