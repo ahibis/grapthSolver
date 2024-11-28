@@ -4,6 +4,10 @@
 
 # GraphSolver
 
+## API
+
+[Show API](_media/globals.md)
+
 ## Definitions
 
 - Objects:

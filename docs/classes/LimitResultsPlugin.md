@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[plugins/limitResultsPlugin/LimitCountResultsPlugin.ts:7](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/plugins/limitResultsPlugin/LimitCountResultsPlugin.ts#L7)
+[plugins/limitResultsPlugin/LimitCountResultsPlugin.ts:7](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/limitResultsPlugin/LimitCountResultsPlugin.ts#L7)
 
 ## Methods
 
@@ -58,4 +58,4 @@
 
 #### Defined in
 
-[plugins/limitResultsPlugin/LimitCountResultsPlugin.ts:11](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/plugins/limitResultsPlugin/LimitCountResultsPlugin.ts#L11)
+[plugins/limitResultsPlugin/LimitCountResultsPlugin.ts:11](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/limitResultsPlugin/LimitCountResultsPlugin.ts#L11)

@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:9](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/Path.ts#L9)
+[BaseGraphSolver/Path.ts:9](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L9)
 
 ***
 
@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:7](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/Path.ts#L7)
+[BaseGraphSolver/Path.ts:7](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L7)
 
 ***
 
@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:11](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/Path.ts#L11)
+[BaseGraphSolver/Path.ts:11](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L11)
 
 ***
 
@@ -64,7 +64,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:5](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/Path.ts#L5)
+[BaseGraphSolver/Path.ts:5](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L5)
 
 ***
 
@@ -74,7 +74,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:12](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/Path.ts#L12)
+[BaseGraphSolver/Path.ts:12](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L12)
 
 ***
 
@@ -84,7 +84,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:6](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/Path.ts#L6)
+[BaseGraphSolver/Path.ts:6](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L6)
 
 ***
 
@@ -98,7 +98,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:10](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/Path.ts#L10)
+[BaseGraphSolver/Path.ts:10](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L10)
 
 ***
 
@@ -108,4 +108,4 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:8](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/Path.ts#L8)
+[BaseGraphSolver/Path.ts:8](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/Path.ts#L8)

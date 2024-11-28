@@ -14,7 +14,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:6](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/BaseGraphSolver.ts#L6)
+[BaseGraphSolver/BaseGraphSolver.ts:6](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L6)
 
 ***
 
@@ -24,4 +24,4 @@
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:7](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/BaseGraphSolver.ts#L7)
+[BaseGraphSolver/BaseGraphSolver.ts:7](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L7)

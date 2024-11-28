@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[plugins/pathDataPlugin/PathDataPlugin.ts:8](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/plugins/pathDataPlugin/PathDataPlugin.ts#L8)
+[plugins/pathDataPlugin/PathDataPlugin.ts:8](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/pathDataPlugin/PathDataPlugin.ts#L8)
 
 ## Properties
 
@@ -54,7 +54,7 @@
 
 #### Defined in
 
-[plugins/pathDataPlugin/PathDataPlugin.ts:7](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/plugins/pathDataPlugin/PathDataPlugin.ts#L7)
+[plugins/pathDataPlugin/PathDataPlugin.ts:7](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/pathDataPlugin/PathDataPlugin.ts#L7)
 
 ## Methods
 
@@ -78,7 +78,7 @@
 
 #### Defined in
 
-[plugins/pathDataPlugin/PathDataPlugin.ts:15](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/plugins/pathDataPlugin/PathDataPlugin.ts#L15)
+[plugins/pathDataPlugin/PathDataPlugin.ts:15](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/pathDataPlugin/PathDataPlugin.ts#L15)
 
 ***
 
@@ -106,4 +106,4 @@
 
 #### Defined in
 
-[plugins/pathDataPlugin/PathDataPlugin.ts:21](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/plugins/pathDataPlugin/PathDataPlugin.ts#L21)
+[plugins/pathDataPlugin/PathDataPlugin.ts:21](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/plugins/pathDataPlugin/PathDataPlugin.ts#L21)

@@ -44,7 +44,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:125](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/BaseGraphSolver.ts#L125)
+[BaseGraphSolver/BaseGraphSolver.ts:125](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L125)
 
 ## Properties
 
@@ -54,7 +54,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:27](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/BaseGraphSolver.ts#L27)
+[BaseGraphSolver/BaseGraphSolver.ts:27](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L27)
 
 ***
 
@@ -64,7 +64,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:30](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/BaseGraphSolver.ts#L30)
+[BaseGraphSolver/BaseGraphSolver.ts:30](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L30)
 
 ## Methods
 
@@ -84,7 +84,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:138](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/BaseGraphSolver.ts#L138)
+[BaseGraphSolver/BaseGraphSolver.ts:138](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L138)
 
 ***
 
@@ -98,7 +98,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:132](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/BaseGraphSolver.ts#L132)
+[BaseGraphSolver/BaseGraphSolver.ts:132](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L132)
 
 ***
 
@@ -112,7 +112,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:135](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/BaseGraphSolver.ts#L135)
+[BaseGraphSolver/BaseGraphSolver.ts:135](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L135)
 
 ***
 
@@ -132,4 +132,4 @@
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:122](https://github.com/ahibis/grapthSolver/blob/29d33a7088c3740c5f86a9fb08a8a2bfd8a007fb/src/BaseGraphSolver/BaseGraphSolver.ts#L122)
+[BaseGraphSolver/BaseGraphSolver.ts:122](https://github.com/ahibis/grapthSolver/blob/4dd4240a4478c04a5ad76de712e4c7919f8a6717/src/BaseGraphSolver/BaseGraphSolver.ts#L122)
