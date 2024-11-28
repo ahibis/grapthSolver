@@ -15,7 +15,7 @@ const createSolver = <TCtx = unknown, TNodeCtx = unknown>() => {
   const solver = new BaseGraphSolver<number, TCtx, TNodeCtx>((node: number) =>
     node < 10 ? [node + 1] : []
   )
-  const resultPlugin = new ResultPlugin<number>(({ data }) => data % 2 === 0)
+  const resultPlugin = new ResultPlugin<number>(({ node }) => node % 2 === 0)
   solver.registerPlugin(resultPlugin)
   return solver
 }
@@ -42,7 +42,7 @@ it('addPathPlugin', () => {
 it('AddConstrainPlugin', () => {
   const solver = createSolver()
   const constrainPlugin = new PathValidatePlugin<number>(solver, (node) => {
-    return node.data < 7
+    return node.node < 7
   })
 
   solver.registerPlugin(constrainPlugin)
@@ -50,7 +50,7 @@ it('AddConstrainPlugin', () => {
   expect(solver.getResultsData()).toEqual([0, 2, 4, 6])
 
   const constrainPlugin1 = new PathValidatePlugin<number>(solver, (node) => {
-    return node.data < 5
+    return node.node < 5
   })
   solver.registerPlugin(constrainPlugin1)
   solver.calculateByNode(0)
@@ -60,7 +60,7 @@ it('AddConstrainPlugin', () => {
 it('validateNodePlugin', () => {
   const solver = createSolver()
   const validateNodePlugin = new ValidateNodePlugin<number>((node) => {
-    return node.data % 4 === 0
+    return node.node % 4 === 0
   })
   solver.registerPlugin(validateNodePlugin)
   solver.calculateByNode(0)

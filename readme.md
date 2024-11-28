@@ -1,98 +1,108 @@
 # GraphSolver
+
 ## Definitions
-* Objects:
-    * Graph - 
-    * Node -
-    * Path -
-    * Edge - ?
-    * Data - 
-    * PathData - 
-    * NodeData - 
-    * Parent -
-    * Child - 
-    * Children -
-    * Result - 
-* Actions
-    * Init - 
-    * Update - 
-    * Destroy -   
-    * Reject -  
-    * Check
-    * Stop - 
-    * Visit - 
-    * Enable -
-    * Disable - 
-    
+
+- Objects:
+  - Graph -
+  - Node -
+  - Path -
+  - Edge - ?
+  - Data -
+  - PathData -
+  - NodeData -
+  - Parent -
+  - Child -
+  - Children -
+  - Result -
+- Actions
+  - Init -
+  - Update -
+  - Destroy -
+  - Reject -
+  - Check
+  - Stop -
+  - Visit -
+  - Enable -
+  - Disable -
+
 ## Plugins
-* Data init
-    * ParentInitPlugin
-    * ChildrenInitPlugin
-    * PathDataInitPlugin
-    * NodeDataInitPlugin
-    * DepthInitPlugin
-* Results
-    * ResultPlugin
-* Stop Graph
-    * StopGraph
-    * VisitPlugin
+
+- Data init
+  - ParentInitPlugin
+  - ChildrenInitPlugin
+  - PathDataInitPlugin
+  - NodeDataInitPlugin
+  - DepthInitPlugin
+- Results
+  - ResultPlugin
+- Stop Graph
+  - StopGraph
+  - VisitPlugin
 
 ## Examples
+
 ### backPack
+
 ```typescript
-Type Item = {i:number, w:number, p:number}
-Type BackPack = {w:number, p:number}
-const widthMax = 20;
-const items:Item = [...]
-new GraphSolver(item=>[items[item.i+1]],{
-    data: {w:0, p:0}
+interface Item {
+  i: number
+  w: number
+  p: number
+}
+const widthMax = 20
+const items: Item[] = []
+new GraphSolver((item: Item) => [items[item.i + 1]], {
+  data: { w: 0, p: 0 },
 })
-    .disablePathPop()
-    .pathDataInit(({node}, {data})=>(
-        {
-            w: data.w + node.w
-            p: data.p + node.p
-        })
-    .rejectPath((data:{w})=>w>widthMax)
-    .pathsDynamicReject(
-        pathDataCompare("w",(w,wP)=>w > wP),
-        pathDataCompare("p",(p,pP)=>p< pP)
-    )
-    .checkPathIsResult(({data:{p}},{data:{p:pL}})=>p < pL )
-    .calculate(items[0], ({data})=>data)
+  .disablePathPop()
+  .pathDataInit(({ node }, { data }) => ({
+    w: data.w + node.w,
+    p: data.p + node.p,
+  }))
+  .rejectPath(({ data: { w } }) => w > widthMax)
+  .pathsDynamicReject(({ data: { w } }, { data: { w: wL } }) => w > wL)
+  .checkPathIsResult(({ data: { p } }, { data: { p: pL } }) => p < pL)
+  .calculate(items[0], ({ data }) => data)
 ```
+
 ### FiendShortedSum
+
 ```typescript
 const result = 343
-new GraphSolver(num=>[num+3, num-2], {data:0})
-    .rejectPath(({data})=>data > 343)
-    .calculateDepth()
-    .makePathOrderByScore(({data, depth})=>-Math.abs(343 - data) - depth * 15)
-    .rejectPathByNodeVisit(2)
-    .checkPathIsResult(({data})=> data = 343)
-    .limitResults(1)
-    .calculate(0, ({node})=>node)
+new GraphSolver((num) => [num + 3, num - 2], { data: 0 })
+  .rejectPath(({ data }) => data > 343)
+  .calculateDepth()
+  .makePathOrderByScore(({ data, depth }) => -Math.abs(343 - data) - depth * 15)
+  .rejectPathByNodeVisit(2)
+  .checkPathIsResult(({ data }) => (data = 343))
+  .limitResults(1)
+  .calculate(0, ({ node }) => node)
 ```
-### MazeExitSearch By A*
+
+### MazeExitSearch By A\*
 
 ```typescript
 const map = ['.#####.', '.#...#.', '.#.....', '.#...#.', '...###']
 type cords = [number, number]
-new GraphSolver<cords>((x,y)=>[
-      [y - 1, x],
-      [y + 1, x],
-      [y, x + 1],
-      [y, x - 1],
-    ])
-    .calculateDepth()
-    .enableNodeParent()
-    .makePathOrderByScore(({node:[x,y], depth}) => 
-    -(Math.abs(0 - y) + Math.abs(6 - x) + depth * 0.5))
-    .rejectPath(({node:[x,y]})=>y < 0 || y > 4 || x < 0 || x > 6)
-    .rejectPath(({node:[x,y]})=>map[y][x] === '#')
-    .checkPathIsResult(({node:[x,y]})=>y === 0 && x === 6)
-    .limitResults(1)
-    .calculate([0,0])
+new GraphSolver<cords>((x, y) => [
+  [y - 1, x],
+  [y + 1, x],
+  [y, x + 1],
+  [y, x - 1],
+])
+  .calculateDepth()
+  .enableNodeParent()
+  .makePathOrderByScore(
+    ({ node: [x, y], depth }) =>
+      -(Math.abs(0 - y) + Math.abs(6 - x) + depth * 0.5)
+  )
+  .rejectPath(({ node: [x, y] }) => y < 0 || y > 4 || x < 0 || x > 6)
+  .rejectPath(({ node: [x, y] }) => map[y][x] === '#')
+  .checkPathIsResult(({ node: [x, y] }) => y === 0 && x === 6)
+  .limitResults(1)
+  .calculate([0, 0])
 ```
+
 ### Short path by Dijkstra
 
 ```typescript
@@ -126,4 +136,3 @@ new GraphSolver<Vertex, boolean, number>(vertex=> Object.entries(Graph[vertex[0]
     .checkPathIsResult((vertex, result)=> vertex.nodeData < result.nodeData)
     .calculate(["A",0])
 ```
-

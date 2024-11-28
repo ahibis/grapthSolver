@@ -52,7 +52,7 @@ class BaseGraphSolver<
   }
   private createPath(data: T): TPath {
     return {
-      data,
+      node: data,
     } as TPath
   }
   private getTransformPathFn() {
@@ -130,10 +130,10 @@ class BaseGraphSolver<
     this.orderOfPathPass = this.queueTypeToQueue[queueType]()
   }
   getResultsData() {
-    return this.results.map((node) => node.data)
+    return this.results.map((node) => node.node)
   }
   getResultsPathData() {
-    return this.results.map((node) => node.pathData)
+    return this.results.map((node) => node.data)
   }
   calculateByNode(data: T) {
     this.plugins.sort(
@@ -154,7 +154,7 @@ class BaseGraphSolver<
       return [node!]
     }
     while (node) {
-      const children = getChildrenByNode(node.data)
+      const children = getChildrenByNode(node.node)
       for (let i = 0; i < children.length; i += 1) {
         const child = transformNode(createPath(children[i]), node)
         resultObserver(child)

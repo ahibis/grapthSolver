@@ -15,14 +15,14 @@ export default class PathDataPlugin<T, TPathData = unknown, TNodeData = unknown>
   onFirstPath(
     path: Path<T, TPathData, TNodeData>
   ): Path<T, TPathData, TNodeData> {
-    path.pathData = this.initDataPath(path)
+    path.data = this.initDataPath(path)
     return path
   }
   onPathTransform(
     path: Path<T, TPathData, TNodeData>,
     parent: Path<T, TPathData, TNodeData>
   ): Path<T, TPathData, TNodeData> {
-    path.pathData = this.getPathDataForNewNode(
+    path.data = this.getPathDataForNewNode(
       path,
       parent as Path<T, TPathData, TNodeData> & { pathData: TPathData }
     )

@@ -134,3 +134,10 @@
 //   next: { data: 31, test: 3 },
 // }) // Работает
 // var a1 = 3
+interface B<T> {
+  data: T
+}
+class A<T, T1 = B<T>> {
+  constructor() {}
+}
+new A<number>()

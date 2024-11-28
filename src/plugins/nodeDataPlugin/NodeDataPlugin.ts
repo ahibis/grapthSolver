@@ -18,7 +18,7 @@ export default class NodeDataPlugin<
   constructor(
     private initNodeData: (node: TPath) => TNodeData,
     private getNodeKey: (node: TPath) => TKey<TData> = (node: TPath) =>
-      node.data
+      node.node
   ) {}
   onFirstPath(path: TPath): TPath {
     path.nodeData = this.initNodeData(path)

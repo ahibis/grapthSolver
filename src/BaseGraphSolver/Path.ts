@@ -1,12 +1,12 @@
 import { LinkedNode } from '../queue'
 
-interface Path<T, TPath = undefined, TNodeData = unknown>
-  extends LinkedNode<T> {
-  data: T
+interface Path<TNode, TPath = unknown, TNodeData = unknown>
+  extends LinkedNode<TNode> {
+  node: TNode
   parent?: this
   depth?: number
   visitsCount?: number
-  pathData?: TPath
+  data: TPath
   prevNode?: this
   nextNode?: this
   nodeData?: TNodeData
