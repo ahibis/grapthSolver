@@ -7,10 +7,12 @@ import {
   PathPlugin,
   ValidateNodePlugin,
   PathDataPlugin,
+  NodeDataPlugin,
+  PathTransformPlugin,
 } from './'
 
-const createSolver = () => {
-  const solver = new BaseGraphSolver((node: number) =>
+const createSolver = <TCtx = unknown, TNodeCtx = unknown>() => {
+  const solver = new BaseGraphSolver<number, TCtx, TNodeCtx>((node: number) =>
     node < 10 ? [node + 1] : []
   )
   const resultPlugin = new ResultPlugin<number>(({ data }) => data % 2 === 0)
@@ -76,4 +78,9 @@ it('PathDataPlugin', () => {
   solver.calculateByNode(0)
   expect(solver.getResultsData()).toEqual([0, 2, 4, 6, 8, 10])
   expect(solver.getResultsPathData()).toEqual([0, 3, 10, 21, 36, 55])
+})
+it('NodeDataPlugin', () => {
+  const solver = createSolver<unknown, number>()
+  const nodeDataPlugin = new NodeDataPlugin<number, unknown, number>(() => 0)
+  solver.registerPlugin(nodeDataPlugin)
 })

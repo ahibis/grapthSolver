@@ -4,5 +4,7 @@ export { default as PathValidatePlugin } from './pathValidatePlugin/PathValidate
 export { default as PathPlugin } from './pathPlugin/PathPlugin'
 export { default as ValidateNodePlugin } from './validateNodePlugin/ValidateNodePlugin'
 export { default as PathDataPlugin } from './pathDataPlugin/PathDataPlugin'
+export { default as PathTransformPlugin } from './pathTransformPlugin/PathTransformPlugin'
+export { default as NodeDataPlugin } from './nodeDataPlugin/NodeDataPlugin'
 
 export { default as GraphPlugin } from './GraphPlugin'

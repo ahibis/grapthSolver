@@ -6,11 +6,6 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 /** @type {import('eslint').Linter.Config[]} */
 export default tseslint.config(
   {
-    plugins: {
-      '@typescript-eslint': tseslint.plugin,
-    },
-  },
-  {
     ignores: ['build', 'node_modules', 'eslint.config.js', 'src/prevVersion'],
   },
   eslintJs.configs.recommended,

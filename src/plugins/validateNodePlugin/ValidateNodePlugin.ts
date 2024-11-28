@@ -4,6 +4,7 @@ import GraphPlugin from '../GraphPlugin'
 export default class ValidateNodePlugin<T, TCtx = unknown, TNodeCtx = unknown>
   implements GraphPlugin<T, TCtx, TNodeCtx>
 {
+  priority = 1000
   constructor(
     private checkNodeIsValid: (
       node: Path<T, TCtx, TNodeCtx>,
