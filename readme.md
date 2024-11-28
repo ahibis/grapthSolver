@@ -2,7 +2,7 @@
 
 ## API
 
-[Show API](docs/globals.md)
+[Show API](docsMd/globals.md)
 
 ## Definitions
 

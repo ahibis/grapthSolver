@@ -24,7 +24,9 @@
     "prettier": "prettier --write ./src",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "docs": "typedoc"
+    "docs:md": "typedoc",
+    "docs:site": "typedoc --options typedoc.site.json",
+    "docs": "yarn docs:md && yarn docs:site"
   },
   "overrides": {
     "eslint": "^9.15.0"
