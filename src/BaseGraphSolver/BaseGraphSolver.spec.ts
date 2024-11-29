@@ -5,7 +5,7 @@ it('GraphSolverIsWorked', () => {
   const solver = new BaseGraphSolver((node: number) =>
     node < 10 ? [node + 1] : []
   )
-  expect(solver.calculateByNode(1)).toEqual([])
+  expect(solver.calculate(1)).toEqual([])
 })
 
 // it("LinkedArray", () => {

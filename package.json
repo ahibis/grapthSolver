@@ -1,7 +1,7 @@
 {
   "name": "graph_solver",
   "version": "0.0.1",
-  "description": "library for declaration solving graph",
+  "description": "A library for typescript that allows manipulating graphs in a declarative style",
   "main": "src/index.ts",
   "author": "Ahibis<pokseteve31@gmail.com>",
   "license": "MIT",

@@ -17,7 +17,7 @@ it('Backpack', () => {
       p: data.p + node.p,
     }))
     .rejectPath(({ data: { w } }) => w > widthMax)
-    .pathsDynamicReject(({ data: { w } }, { data: { w: wL } }) => w > wL)
+    .rejectPathsDynamic(({ data: { w } }, { data: { w: wL } }) => w > wL)
     .checkPathIsResult(({ data: { p } }, { data: { p: pL } }) => p < pL)
-    .calculate(items[0], ({ data }) => data)
+    .calculate(items[0])
 })

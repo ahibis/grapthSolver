@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[plugins/GraphPlugin.ts:14](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/GraphPlugin.ts#L14)
+[plugins/GraphPlugin.ts:14](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/plugins/GraphPlugin.ts#L14)
 
 ***
 
@@ -48,7 +48,7 @@
 
 #### Defined in
 
-[plugins/GraphPlugin.ts:8](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/GraphPlugin.ts#L8)
+[plugins/GraphPlugin.ts:8](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/plugins/GraphPlugin.ts#L8)
 
 ## Methods
 
@@ -68,7 +68,7 @@
 
 #### Defined in
 
-[plugins/GraphPlugin.ts:12](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/GraphPlugin.ts#L12)
+[plugins/GraphPlugin.ts:12](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/plugins/GraphPlugin.ts#L12)
 
 ***
 
@@ -88,7 +88,7 @@
 
 #### Defined in
 
-[plugins/GraphPlugin.ts:13](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/GraphPlugin.ts#L13)
+[plugins/GraphPlugin.ts:13](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/plugins/GraphPlugin.ts#L13)
 
 ***
 
@@ -108,7 +108,7 @@
 
 #### Defined in
 
-[plugins/GraphPlugin.ts:9](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/GraphPlugin.ts#L9)
+[plugins/GraphPlugin.ts:9](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/plugins/GraphPlugin.ts#L9)
 
 ***
 
@@ -132,7 +132,7 @@
 
 #### Defined in
 
-[plugins/GraphPlugin.ts:10](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/GraphPlugin.ts#L10)
+[plugins/GraphPlugin.ts:10](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/plugins/GraphPlugin.ts#L10)
 
 ***
 
@@ -156,4 +156,4 @@
 
 #### Defined in
 
-[plugins/GraphPlugin.ts:11](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/GraphPlugin.ts#L11)
+[plugins/GraphPlugin.ts:11](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/plugins/GraphPlugin.ts#L11)

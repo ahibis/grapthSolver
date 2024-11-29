@@ -26,6 +26,7 @@
 - Actions
   - Init -
   - Update -
+  - Transform -
   - Destroy -
   - Reject -
   - Check

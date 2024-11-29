@@ -4,7 +4,11 @@
 
 [graph_solver](../globals.md) / BaseGraphSolver
 
-# Class: BaseGraphSolver\<T, TPathData, TNodeCtx, TPath, TGraphPlugin\>
+# Class: BaseGraphSolver\<TNode, TPathData, TNodeData, TPath, TGraphPlugin\>
+
+Class for manipulating graphs without a declarative style
+
+ BaseGraphSolver
 
 ## Extended by
 
@@ -12,93 +16,115 @@
 
 ## Type Parameters
 
-• **T**
+• **TNode**
 
 • **TPathData** = `unknown`
 
-• **TNodeCtx** = `unknown`
+• **TNodeData** = `unknown`
 
-• **TPath** *extends* [`Path`](../interfaces/Path.md)\<`T`, `TPathData`, `TNodeCtx`\> = [`Path`](../interfaces/Path.md)\<`T`, `TPathData`, `TNodeCtx`\>
+• **TPath** *extends* [`Path`](../interfaces/Path.md)\<`TNode`, `TPathData`, `TNodeData`\> = [`Path`](../interfaces/Path.md)\<`TNode`, `TPathData`, `TNodeData`\>
 
-• **TGraphPlugin** *extends* [`GraphPlugin`](../namespaces/plugins/interfaces/GraphPlugin.md)\<`T`, `TPathData`, `TNodeCtx`, `TPath`\> = [`GraphPlugin`](../namespaces/plugins/interfaces/GraphPlugin.md)\<`T`, `TPathData`, `TNodeCtx`, `TPath`\>
+• **TGraphPlugin** *extends* [`GraphPlugin`](../namespaces/plugins/interfaces/GraphPlugin.md)\<`TNode`, `TPathData`, `TNodeData`, `TPath`\> = [`GraphPlugin`](../namespaces/plugins/interfaces/GraphPlugin.md)\<`TNode`, `TPathData`, `TNodeData`, `TPath`\>
 
 ## Constructors
 
 ### new BaseGraphSolver()
 
-> **new BaseGraphSolver**\<`T`, `TPathData`, `TNodeCtx`, `TPath`, `TGraphPlugin`\>(`getChildrenByNode`, `queueType`): [`BaseGraphSolver`](BaseGraphSolver.md)\<`T`, `TPathData`, `TNodeCtx`, `TPath`, `TGraphPlugin`\>
+> **new BaseGraphSolver**\<`TNode`, `TPathData`, `TNodeData`, `TPath`, `TGraphPlugin`\>(`getChildrenByNode`, `queueType`): [`BaseGraphSolver`](BaseGraphSolver.md)\<`TNode`, `TPathData`, `TNodeData`, `TPath`, `TGraphPlugin`\>
+
+Creates an instance of BaseGraphSolver.
 
 #### Parameters
 
 ##### getChildrenByNode
 
-(`node`) => `T`[]
+(`node`) => `TNode`[]
+
+A function that takes a node and returns an array of its children.
 
 ##### queueType
 
 [`QueueType`](../enumerations/QueueType.md) = `QueueType.arrayQueue`
 
+The type of queue to use for processing paths. Defaults to QueueType.arrayQueue.
+
 #### Returns
 
-[`BaseGraphSolver`](BaseGraphSolver.md)\<`T`, `TPathData`, `TNodeCtx`, `TPath`, `TGraphPlugin`\>
+[`BaseGraphSolver`](BaseGraphSolver.md)\<`TNode`, `TPathData`, `TNodeData`, `TPath`, `TGraphPlugin`\>
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:125](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/BaseGraphSolver.ts#L125)
+[BaseGraphSolver/BaseGraphSolver.ts:151](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/BaseGraphSolver.ts#L151)
 
 ## Properties
 
-### orderOfPathPass
+### resultPaths
 
-> **orderOfPathPass**: `ILinkedQueue`\<`T`, `TPath`\>
-
-#### Defined in
-
-[BaseGraphSolver/BaseGraphSolver.ts:27](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/BaseGraphSolver.ts#L27)
-
-***
-
-### results
-
-> **results**: `TPath`[] = `[]`
+> **resultPaths**: `TPath`[] = `[]`
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:30](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/BaseGraphSolver.ts#L30)
+[BaseGraphSolver/BaseGraphSolver.ts:42](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/BaseGraphSolver.ts#L42)
 
 ## Methods
 
-### calculateByNode()
+### calculate()
 
-> **calculateByNode**(`data`): `TPath`[]
+> **calculate**\<`TResult`\>(`data`, `transformResults`?): `TPath`[]
+
+Executes the path calculation process starting from the given node data.
+It applies plugins to modify the behavior and appearance of the pathfinding
+process, sorts plugins by priority and utilizes various helper functions
+to transform, validate, and observe paths during the calculation.
+
+#### Type Parameters
+
+• **TResult**
+
+The result type after applying the optional transformation.
 
 #### Parameters
 
 ##### data
 
-`T`
+`TNode`
+
+The initial node data to start the path calculation.
+
+##### transformResults?
+
+(`results`) => `TResult`[]
+
+An optional function to transform the resulting paths.
 
 #### Returns
 
 `TPath`[]
 
+An array of paths that represent the result of the pathfinding process.
+
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:138](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/BaseGraphSolver.ts#L138)
+[BaseGraphSolver/BaseGraphSolver.ts:187](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/BaseGraphSolver.ts#L187)
 
 ***
 
 ### getResultsData()
 
-> **getResultsData**(): `T`[]
+> **getResultsData**(): `TNode`[]
+
+Returns the data from all the nodes in the result paths.
 
 #### Returns
 
-`T`[]
+`TNode`[]
+
+An array of node data, where each element is the data from a node
+in one of the result paths.
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:132](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/BaseGraphSolver.ts#L132)
+[BaseGraphSolver/BaseGraphSolver.ts:164](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/BaseGraphSolver.ts#L164)
 
 ***
 
@@ -106,13 +132,18 @@
 
 > **getResultsPathData**(): `TPathData`[]
 
+Retrieves the path data from all result paths.
+
 #### Returns
 
 `TPathData`[]
 
+An array where each element is the path data associated
+with a node in the result paths.
+
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:135](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/BaseGraphSolver.ts#L135)
+[BaseGraphSolver/BaseGraphSolver.ts:173](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/BaseGraphSolver.ts#L173)
 
 ***
 
@@ -120,11 +151,17 @@
 
 > **registerPlugin**(`plugin`): `void`
 
+Registers a plugin to the graph solver.
+
 #### Parameters
 
 ##### plugin
 
 `TGraphPlugin`
+
+The plugin to be registered, which should implement
+the TGraphPlugin interface. This plugin will be added to the list
+of plugins used by the solver to modify or enhance its behavior.
 
 #### Returns
 
@@ -132,4 +169,4 @@
 
 #### Defined in
 
-[BaseGraphSolver/BaseGraphSolver.ts:122](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/BaseGraphSolver.ts#L122)
+[BaseGraphSolver/BaseGraphSolver.ts:142](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/BaseGraphSolver.ts#L142)

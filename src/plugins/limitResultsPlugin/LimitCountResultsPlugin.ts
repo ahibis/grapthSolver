@@ -9,6 +9,6 @@ export default class LimitOfCountResults<T, TCtx = unknown, TNodeCtx = unknown>
     private limitOfCount = 1
   ) {}
   onCheckStopCalculate(): boolean {
-    return this.graph.results.length >= this.limitOfCount
+    return this.graph.resultPaths.length >= this.limitOfCount
   }
 }

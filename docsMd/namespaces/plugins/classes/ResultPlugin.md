@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[plugins/resultPlugin/ResultPlugin.ts:7](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/resultPlugin/ResultPlugin.ts#L7)
+[plugins/resultPlugin/ResultPlugin.ts:7](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/plugins/resultPlugin/ResultPlugin.ts#L7)
 
 ## Methods
 
@@ -60,4 +60,4 @@
 
 #### Defined in
 
-[plugins/resultPlugin/ResultPlugin.ts:10](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/resultPlugin/ResultPlugin.ts#L10)
+[plugins/resultPlugin/ResultPlugin.ts:10](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/plugins/resultPlugin/ResultPlugin.ts#L10)

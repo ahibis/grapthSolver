@@ -5,22 +5,32 @@ interface GraphOptions {
   queueType?: QueueType
 }
 
+/**
+ * Class for manipulating graphs in a declarative style
+ * @class GraphSolver
+ * @extends {BaseGraphSolver<TNode, TPathData, TNodeData, TPath, TGraphPlugin>}
+ * @template TNode Type of node graph
+ * @template TPathData This type describes the data required to calculate values during a pass
+ * @template TNodeData  This type describes additional mutable node data. Such as the number of visits, the maximum length to the node, and others
+ * @template TPath This type describes the path created during the graph pass. It can be redefined to add new values inside
+ * @template TGraphPlugin Plugin class type
+ */
 class GraphSolver<
   TNode,
   TPathData = unknown,
-  TNodeCtx = unknown,
-  TPath extends Path<TNode, TPathData, TNodeCtx> = Path<
+  TNodeData = unknown,
+  TPath extends Path<TNode, TPathData, TNodeData> = Path<
     TNode,
     TPathData,
-    TNodeCtx
+    TNodeData
   >,
   TGraphPlugin extends GraphPlugin<
     TNode,
     TPathData,
-    TNodeCtx,
+    TNodeData,
     TPath
-  > = GraphPlugin<TNode, TPathData, TNodeCtx, TPath>,
-> extends BaseGraphSolver<TNode, TPathData, TNodeCtx, TPath, TGraphPlugin> {
+  > = GraphPlugin<TNode, TPathData, TNodeData, TPath>,
+> extends BaseGraphSolver<TNode, TPathData, TNodeData, TPath, TGraphPlugin> {
   /**
    * Creates an instance of the GraphSolver.
    * @param getChildrenByNode A function that takes a node and returns an array of its children.
@@ -32,7 +42,7 @@ class GraphSolver<
    */
   constructor(
     getChildrenByNode: (node: TNode) => TNode[],
-    options?: GraphOptions & Omit<Path<undefined, TPathData, TNodeCtx>, 'node'>
+    options?: GraphOptions & Omit<Path<undefined, TPathData, TNodeData>, 'node'>
   ) {
     super(getChildrenByNode, options?.queueType || QueueType.arrayQueue)
   }
@@ -134,12 +144,12 @@ class GraphSolver<
    * const graphSolver = new GraphSolver()
    *   .nodeDataKey(node => node.id)
    */
-  nodeDataKey(nodeDataKey: (node: TNode) => string) {
+  setNodeDataKey(nodeDataKey: (node: TNode) => string) {
     return this
   }
   /**
    * Initializes the node data for the each nodes.
-   * @param nodeDataInit function which takes the current path and the previous path
+   * @param initNodeData function which takes the current path and the previous path
    * and returns the node data for the current node.
    * @example
    * const graphSolver = new GraphSolver()
@@ -152,7 +162,7 @@ class GraphSolver<
    *     return nodeData
    *   })
    */
-  nodeDataInit(nodeDataInit: (path: TPath, prevPath: TPath) => number) {
+  setInitNodeData(initNodeData: (path: TPath, prevPath: TPath) => number) {
     return this
   }
 
@@ -186,7 +196,7 @@ class GraphSolver<
    *     (path, prevPath) => !!prevPath.nodeData?.visitCount
    *   )
    */
-  pathsDynamicReject(
+  rejectPathsDynamic(
     ...conditionsRejectPaths: ((path: TPath, prevPath: TPath) => boolean)[]
   ) {
     return this
@@ -194,12 +204,12 @@ class GraphSolver<
   /**
    * Sets the function to determine the key for a given result path.
    * This key is used to uniquely identify paths in the result set.
-   * @param resultKey A function that takes a path and returns a string key.
+   * @param getResultKeyByPath A function that takes a path and returns a string key.
    * @example
    * const graphSolver = new GraphSolver()
    *   .resultKey(path => `${path.node.id}-${path.depth}`)
    */
-  resultKey(resultKey: (path: TPath) => string) {
+  setResultKey(getResultKeyByPath: (path: TPath) => string) {
     return this
   }
   /**
@@ -237,20 +247,6 @@ class GraphSolver<
   limitResults(limit: number) {
     return this
   }
-
-  /**
-   * Starts the graph solver with the given node as the starting point.
-   * @param firstNode The node to start the graph solver from.
-   * @param onGetResults An optional callback that is called whenever a new result
-   * is found. The callback is passed the result path.
-   * @example
-   * const graphSolver = new GraphSolver()
-   * graphSolver.calculate(firstNode, (result) => console.log(result))
-   */
-  calculate<TResult>(
-    firstNode: TNode,
-    onGetResults?: (results: TPath) => TResult
-  ) {}
 }
 
 export { GraphSolver }

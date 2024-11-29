@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[plugins/pathTransformPlugin/PathTransformPlugin.ts:15](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/pathTransformPlugin/PathTransformPlugin.ts#L15)
+[plugins/pathTransformPlugin/PathTransformPlugin.ts:15](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/plugins/pathTransformPlugin/PathTransformPlugin.ts#L15)
 
 ## Methods
 
@@ -66,4 +66,4 @@
 
 #### Defined in
 
-[plugins/pathTransformPlugin/PathTransformPlugin.ts:17](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/plugins/pathTransformPlugin/PathTransformPlugin.ts#L17)
+[plugins/pathTransformPlugin/PathTransformPlugin.ts:17](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/plugins/pathTransformPlugin/PathTransformPlugin.ts#L17)

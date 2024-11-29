@@ -6,6 +6,10 @@
 
 # Interface: Path\<TNode, TPath, TNodeData\>
 
+Interface Path describes the path created during the graph pass
+
+ Path
+
 ## Extends
 
 - `default`\<`TNode`\>
@@ -14,11 +18,37 @@
 
 • **TNode**
 
+Type of node
+
 • **TPath** = `unknown`
+
+This type describes the data required to calculate values during a pass
 
 • **TNodeData** = `unknown`
 
+This type describes additional mutable node data. Such as the number of visits, the maximum length to the node, and others
+
 ## Properties
+
+### children?
+
+> `optional` **children**: [`Path`](Path.md)\<`TNode`, `TPath`, `TNodeData`\>[]
+
+#### Defined in
+
+[BaseGraphSolver/Path.ts:20](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/Path.ts#L20)
+
+***
+
+### childrenNode?
+
+> `optional` **childrenNode**: `TNode`[]
+
+#### Defined in
+
+[BaseGraphSolver/Path.ts:21](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/Path.ts#L21)
+
+***
 
 ### data
 
@@ -26,7 +56,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:9](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L9)
+[BaseGraphSolver/Path.ts:15](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/Path.ts#L15)
 
 ***
 
@@ -36,7 +66,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:7](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L7)
+[BaseGraphSolver/Path.ts:23](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/Path.ts#L23)
 
 ***
 
@@ -50,7 +80,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:11](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L11)
+[BaseGraphSolver/Path.ts:25](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/Path.ts#L25)
 
 ***
 
@@ -64,7 +94,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:5](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L5)
+[BaseGraphSolver/Path.ts:13](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/Path.ts#L13)
 
 ***
 
@@ -74,7 +104,7 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:12](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L12)
+[BaseGraphSolver/Path.ts:17](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/Path.ts#L17)
 
 ***
 
@@ -84,7 +114,17 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:6](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L6)
+[BaseGraphSolver/Path.ts:18](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/Path.ts#L18)
+
+***
+
+### parentNode?
+
+> `optional` **parentNode**: `TNode`
+
+#### Defined in
+
+[BaseGraphSolver/Path.ts:19](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/Path.ts#L19)
 
 ***
 
@@ -98,14 +138,4 @@
 
 #### Defined in
 
-[BaseGraphSolver/Path.ts:10](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L10)
-
-***
-
-### visitsCount?
-
-> `optional` **visitsCount**: `number`
-
-#### Defined in
-
-[BaseGraphSolver/Path.ts:8](https://github.com/ahibis/grapthSolver/blob/0c6ad5227b2300e452a220efa1e98a9e3061f40c/src/BaseGraphSolver/Path.ts#L8)
+[BaseGraphSolver/Path.ts:24](https://github.com/ahibis/grapthSolver/blob/8193d141248faba7f0f1404b97be6f37b74018dc/src/BaseGraphSolver/Path.ts#L24)

@@ -23,21 +23,21 @@ const createSolver = <TCtx = unknown, TNodeCtx = unknown>() => {
 it('resultPlugin', () => {
   const solver = createSolver()
 
-  solver.calculateByNode(2)
+  solver.calculate(2)
   expect(solver.getResultsData()).toEqual([2, 4, 6, 8, 10])
 })
 it('limitResultPlugin', () => {
   const solver = createSolver()
   const limitResultsPlugin = new LimitResultsPlugin<number>(solver)
   solver.registerPlugin(limitResultsPlugin)
-  solver.calculateByNode(2)
+  solver.calculate(2)
   expect(solver.getResultsData()).toEqual([2])
 })
 it('addPathPlugin', () => {
   const solver = createSolver()
   const addPathPlugin = new PathPlugin<number>()
   solver.registerPlugin(addPathPlugin)
-  expect(solver.calculateByNode(1).every(({ parent }) => parent)).toBe(true)
+  expect(solver.calculate(1).every(({ parent }) => parent)).toBe(true)
 })
 it('AddConstrainPlugin', () => {
   const solver = createSolver()
@@ -46,14 +46,14 @@ it('AddConstrainPlugin', () => {
   })
 
   solver.registerPlugin(constrainPlugin)
-  solver.calculateByNode(0)
+  solver.calculate(0)
   expect(solver.getResultsData()).toEqual([0, 2, 4, 6])
 
   const constrainPlugin1 = new PathValidatePlugin<number>(solver, (node) => {
     return node.node < 5
   })
   solver.registerPlugin(constrainPlugin1)
-  solver.calculateByNode(0)
+  solver.calculate(0)
   expect(solver.getResultsData()).toEqual([0, 2, 4])
 })
 
@@ -63,7 +63,7 @@ it('validateNodePlugin', () => {
     return node.node % 4 === 0
   })
   solver.registerPlugin(validateNodePlugin)
-  solver.calculateByNode(0)
+  solver.calculate(0)
   expect(solver.getResultsData()).toEqual([0])
 })
 it('PathDataPlugin', () => {
@@ -75,7 +75,7 @@ it('PathDataPlugin', () => {
     }
   )
   solver.registerPlugin(pathDataPlugin)
-  solver.calculateByNode(0)
+  solver.calculate(0)
   expect(solver.getResultsData()).toEqual([0, 2, 4, 6, 8, 10])
   expect(solver.getResultsPathData()).toEqual([0, 3, 10, 21, 36, 55])
 })
